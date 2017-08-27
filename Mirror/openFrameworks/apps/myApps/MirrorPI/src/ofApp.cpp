@@ -42,11 +42,17 @@ void ofApp::setup(){
 	//Wait for sync
 	ofSetVerticalSync(true);
 
+	//Load Images:
+	overlayImage.load("testtikimask.png");
+	overlayImageCenterOffsetX = int(overlayImage.getWidth() / 2);
+	overlayImageCenterOffsetY = int(overlayImage.getHeight() / 2);
+
+
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	ofBackground(100, 100, 100);
+	ofBackground(0, 0, 0);
 	vidGrabber.update();
 
 	if (vidGrabber.isFrameNew()) {
@@ -60,6 +66,30 @@ void ofApp::update(){
 		//Update every so often
 		if ((ofGetElapsedTimeMillis() - elapsedTime) > FACE_FIND_DELAY) {
 			finder.findHaarObjects(cvGrayImg);
+		}
+
+		
+		if (finder.blobs.size() > 0) {
+			ofRectangle cur;
+			cur = finder.blobs[0].boundingRect;
+			lastBlobWidth = cur.width;
+			lastBlobHeight = cur.height;
+			lastBlobX = cur.x;
+			lastBlobY = cur.y;
+
+			lastBlobCenterX = lastBlobX + (int)(lastBlobWidth / 2);
+			lastBlobCenterY = lastBlobY + (int)(lastBlobHeight / 2);
+
+			//Find location from webcam to full screen
+			blobCenterXPercent = lastBlobCenterX / (double)camWidth;
+			blobCenterYPercent = lastBlobCenterY / (double)camHeight;
+
+			ofLogNotice() << "Blob X: " << lastBlobX;
+			ofLogNotice() << "Center X: " << lastBlobCenterX;
+			ofLogNotice() << "Blob Percent: " << blobCenterXPercent;
+
+			overlayImageX = (int)((WINDOW_WIDTH * blobCenterXPercent) - overlayImageCenterOffsetX);
+			overlayImageY = (int)((WINDOW_HEIGHT * blobCenterYPercent) - overlayImageCenterOffsetY);
 		}
 
 	}
@@ -76,11 +106,14 @@ void ofApp::draw(){
 	ofSetHexColor(0xff0000);
 	ofNoFill();
 
-	//Draw firt blob
+	//Draw first blob
 	if (finder.blobs.size() > 0) {
 		ofRectangle cur = finder.blobs[0].boundingRect;
 		ofDrawRectangle(cur.x, cur.y, cur.width, cur.height);
 	}
+
+	overlayImage.draw(overlayImageX, overlayImageY);
+
 
 }
 

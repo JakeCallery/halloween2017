@@ -3,6 +3,9 @@
 #include "ofMain.h"
 #include "ofxCvHaarFinder.h"
 
+#define WINDOW_WIDTH 1080
+#define WINDOW_HEIGHT 1920
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -31,6 +34,26 @@ class ofApp : public ofBaseApp{
 
 		//webcam bits
 		ofVideoGrabber vidGrabber;
-		int camWidth;
-		int camHeight;
+		int camWidth = 320;
+		int camHeight = 240;
+
+		//Images
+		ofImage overlayImage;
+
+		//Helpers
+		int lastBlobX;
+		int lastBlobY;
+		int lastBlobWidth;
+		int lastBlobHeight;
+		int lastBlobCenterX;
+		int lastBlobCenterY;
+
+		double blobCenterXPercent;
+		double blobCenterYPercent;
+
+		int overlayImageCenterOffsetX;
+		int overlayImageCenterOffsetY;
+		int overlayImageX;
+		int overlayImageY;
+
 };
