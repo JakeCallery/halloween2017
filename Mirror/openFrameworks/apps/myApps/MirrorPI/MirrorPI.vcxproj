@@ -95,16 +95,34 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\addons\ofxGui\src;
-..\..\..\addons\ofxNetwork\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs\CLD\src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs\CLD\include\CLD;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs\ofxCv\include;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs\ofxCv\include\ofxCv;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs\CLD\include;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs\CLD;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxNetwork\src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxFaceTracker\src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxFaceTracker\libs\FaceTracker\include;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\core;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\features2d;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\flann;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\ml;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\photo;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\superres;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\ts;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\video;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab;src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxTiming\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_calib3d249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_contrib249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_core249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_features2d249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_flann249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_gpu249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_highgui249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_imgproc249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_legacy249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_ml249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_nonfree249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_objdetect249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_photo249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_stitching249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_superres249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_ts249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_video249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\opencv_videostab249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Debug\zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
     </PostBuildEvent>
@@ -116,17 +134,36 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\addons\ofxGui\src;
-..\..\..\addons\ofxNetwork\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\core;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\features2d;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\flann;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\ml;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\photo;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\superres;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\ts;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\video;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab;libs/ofxCv/include;libs/CLD/include/CLD;src;
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxTiming\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_calib3d249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_contrib249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_core249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_features2d249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_flann249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_gpu249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_highgui249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_imgproc249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_legacy249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_ml249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_nonfree249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_objdetect249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_photo249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_stitching249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_superres249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_ts249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_video249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_videostab249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
     </PostBuildEvent>
@@ -137,8 +174,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\addons\ofxGui\src;
-..\..\..\addons\ofxNetwork\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs\CLD\src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs\CLD\include\CLD;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs\ofxCv\include;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs\ofxCv\include\ofxCv;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs\CLD\include;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs\CLD;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\libs;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxCv\src;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxNetwork\src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxFaceTracker\src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxFaceTracker\libs\FaceTracker\include;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\core;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\features2d;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\flann;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\ml;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\photo;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\superres;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\ts;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\video;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab;src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxTiming\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -149,8 +185,27 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_calib3d249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_contrib249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_core249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_features2d249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_flann249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_gpu249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_highgui249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_imgproc249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_legacy249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_ml249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_nonfree249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_objdetect249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_photo249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_stitching249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_superres249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_ts249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_video249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\opencv_videostab249.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\Win32\Release\zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
     </PostBuildEvent>
@@ -161,8 +216,8 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\addons\ofxGui\src;
-..\..\..\addons\ofxNetwork\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxGui\src;..\..\..\addons\ofxNetwork\src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxFaceTracker\src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxFaceTracker\libs\FaceTracker\include;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\src;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\core;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\features2d;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\flann;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\ml;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\photo;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\superres;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\ts;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\video;E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab;libs/ofxCv/include;libs/CLD/include/CLD;src;
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxTiming\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -172,13 +227,56 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_calib3d249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_contrib249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_core249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_features2d249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_flann249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_gpu249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_highgui249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_imgproc249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_legacy249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_ml249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_nonfree249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_objdetect249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_photo249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_stitching249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_superres249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_ts249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_video249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\opencv_videostab249d.lib%3b
+E:\2017Indie\Halloween\Mirror\openFrameworks\addons\ofxOpenCv\libs\opencv\lib\vs\x64\Debug\zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\CLD\src\ETF.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\CLD\src\fdog.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Calibration.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\ContourFinder.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Distance.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Flow.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Helpers.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Kalman.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\ObjectFinder.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\RunningBackground.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Tracker.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Utilities.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Wrappers.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\CLM.cc" />
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\FCheck.cc" />
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\FDet.cc" />
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\IO.cc" />
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\Patch.cc" />
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\PAW.cc" />
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\PDM.cc" />
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\Tracker.cc" />
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\src\Expression.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\src\ExpressionClassifier.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\src\ofxFaceTracker.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp" />
@@ -191,10 +289,45 @@
     <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPManager.cpp" />
     <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPServer.cpp" />
     <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxUDPManager.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\ETF.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\fdog.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\imatrix.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\myvec.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Calibration.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\ContourFinder.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Distance.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Flow.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Helpers.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Kalman.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\ObjectFinder.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\RunningBackground.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Tracker.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Utilities.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Wrappers.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\src\ofxCv.h" />
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\CLM.h" />
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\FCheck.h" />
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\FDet.h" />
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\IO.h" />
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\Patch.h" />
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\PAW.h" />
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\PDM.h" />
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\Tracker.h" />
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\src\Expression.h" />
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\src\ExpressionClassifier.h" />
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\src\ofxFaceTracker.h" />
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\src\ofxFaceTrackerThreaded.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxGui.h" />
@@ -210,6 +343,182 @@
     <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPManager.h" />
     <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPServer.h" />
     <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxUDPManager.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d\calib3d.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\contrib.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\detection_based_tracker.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\hybridtracker.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\openfabmap.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\retina.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\affine.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\core.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\core_c.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\cuda_devptrs.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\devmem2d.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\eigen.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\gpumat.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\internal.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\mat.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\opengl_interop.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\opengl_interop_deprecated.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\operations.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\types_c.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\version.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\wimage.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\features2d\features2d.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\allocator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\all_indices.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\any.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\autotuned_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\composite_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\config.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\defines.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\dist.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\dummy.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\dynamic_bitset.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\flann.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\flann_base.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\general.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\ground_truth.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\hdf5.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\heap.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\hierarchical_clustering_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\index_testing.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\kdtree_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\kdtree_single_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\kmeans_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\linear_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\logger.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\lsh_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\lsh_table.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\matrix.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\miniflann.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\nn_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\object_factory.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\params.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\random.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\result_set.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\sampling.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\saving.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\simplex_downhill.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\timer.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\block.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\border_interpolate.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\color.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\common.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\datamov_utils.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\color_detail.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\reduce.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\reduce_key_val.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\transform_detail.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\type_traits_detail.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\vec_distance_detail.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\dynamic_smem.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\emulation.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\filters.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\funcattrib.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\functional.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\limits.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\reduce.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\saturate_cast.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\scan.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\simd_functions.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\static_check.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\transform.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\type_traits.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\utility.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\vec_distance.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\vec_math.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\vec_traits.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\warp.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\warp_reduce.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\warp_shuffle.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\devmem2d.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\gpu.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\gpumat.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\stream_accessor.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\cap_ios.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\highgui.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\highgui_c.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\ios.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\imgproc.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\imgproc_c.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\types_c.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\blobtrack.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\compat.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\legacy.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\streams.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ml\ml.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree\features2d.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree\gpu.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree\nonfree.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree\ocl.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect\objdetect.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\opencv.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\opencv_modules.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\photo\photo.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\photo\photo_c.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\autocalib.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\blenders.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\camera.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\exposure_compensate.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\matchers.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\motion_estimators.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\seam_finders.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\util.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\util_inl.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\warpers.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\warpers_inl.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\stitcher.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\warpers.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\superres\optical_flow.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\superres\superres.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts\gpu_perf.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts\gpu_test.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts\ts.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts\ts_gtest.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts\ts_perf.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\deblurring.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\fast_marching.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\fast_marching_inl.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\frame_source.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\global_motion.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\inpainting.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\log.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\motion_stabilizing.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\optical_flow.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\stabilizer.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\videostab.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\video\background_segm.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\video\tracking.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\video\video.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cv.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cv.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cvaux.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cvaux.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cvwimage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cxcore.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cxcore.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cxeigen.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cxmisc.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\highgui.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\ml.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvBlob.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvConstants.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxOpenCv.h" />
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\DelayTimer.h" />
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\FadeTimer.h" />
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\Hysteresis.h" />
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\LerpTimer.h" />
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\ofxTiming.h" />
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\RateTimer.h" />
+    <ClInclude Include="src\FaceOverlay.h" />
     <ClInclude Include="src\ofApp.h" />
   </ItemGroup>
   <ItemGroup>
