@@ -30,21 +30,17 @@ void ofApp::setup(){
 		}
 	}
 
+	vidGrabber.setVerbose(false);
 	vidGrabber.setDeviceID(0);
 	vidGrabber.setDesiredFrameRate(60);
 	vidGrabber.initGrabber(camWidth, camHeight);
+	
 
 	//Set up haar xml
 	finder.setup("haarcascade_frontalface_default.xml");
-
-	videoInverted.allocate(camWidth, camHeight, OF_PIXELS_RGB);
-	videoTexture.allocate(videoInverted);
+	
+	//Wait for sync
 	ofSetVerticalSync(true);
-
-	//img.load("test.jpg");
-	//finder.findHaarObjects(img);
-
-
 
 }
 
@@ -54,9 +50,8 @@ void ofApp::update(){
 	vidGrabber.update();
 
 	if (vidGrabber.isFrameNew()) {
-		//Generate image from pixels
+		//Generate grayscale image from pixels
 		ofPixels &pixels = vidGrabber.getPixels();
-		//img.setFromPixels(pixels);
 		cvColorImg.setFromPixels(pixels);
 
 		//Convert to greyscale image
@@ -72,23 +67,21 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	ofSetHexColor(0xffffff);
-
+	
+	//Draw base grayscale image for testing
+	ofSetHexColor(0xFFFFFF);
 	cvGrayImg.draw(0, 0);
+	
+	//Set up vector draw
+	ofSetHexColor(0xff0000);
 	ofNoFill();
 
+	//Draw firt blob
 	if (finder.blobs.size() > 0) {
 		ofRectangle cur = finder.blobs[0].boundingRect;
 		ofDrawRectangle(cur.x, cur.y, cur.width, cur.height);
 	}
 
-/*
-	ofLogNotice() << "Num Blobs: " << finder.blobs.size();
-	for (unsigned int i = 0; i < finder.blobs.size(); i++) {
-		ofRectangle cur = finder.blobs[i].boundingRect;
-		ofDrawRectangle(cur.x, cur.y, cur.width, cur.height);
-	}
-	*/
 }
 
 //--------------------------------------------------------------

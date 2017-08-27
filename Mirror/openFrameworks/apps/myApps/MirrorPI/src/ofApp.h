@@ -24,10 +24,7 @@ class ofApp : public ofBaseApp{
 
 		uint64_t elapsedTime;
 
-		//const FACE_FIND_DELAY = 500;
-
 		//Haar finder bits
-		ofImage img;
 		ofxCvGrayscaleImage cvGrayImg;
 		ofxCvColorImage cvColorImg;
 		ofxCvHaarFinder finder;
