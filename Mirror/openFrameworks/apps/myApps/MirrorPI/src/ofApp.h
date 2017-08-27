@@ -31,8 +31,6 @@ class ofApp : public ofBaseApp{
 
 		//webcam bits
 		ofVideoGrabber vidGrabber;
-		ofPixels videoInverted;
-		ofTexture videoTexture;
 		int camWidth;
 		int camHeight;
 };
