@@ -22,8 +22,14 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+		uint64_t elapsedTime;
+
+		//const FACE_FIND_DELAY = 500;
+
 		//Haar finder bits
 		ofImage img;
+		ofxCvGrayscaleImage cvGrayImg;
+		ofxCvColorImage cvColorImg;
 		ofxCvHaarFinder finder;
 
 		//webcam bits

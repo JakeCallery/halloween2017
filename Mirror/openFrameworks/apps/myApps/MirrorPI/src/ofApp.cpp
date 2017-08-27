@@ -1,10 +1,16 @@
 #include "ofApp.h"
 
+#define FACE_FIND_DELAY 100
+
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofSetLogLevel(OF_LOG_VERBOSE);
 	ofLogNotice() << "Starting Up...";
 
+	//Inits
+	elapsedTime = 0;
+
+	//Cam Setup
 	camWidth = 320;
 	camHeight = 240;
 
@@ -28,12 +34,14 @@ void ofApp::setup(){
 	vidGrabber.setDesiredFrameRate(60);
 	vidGrabber.initGrabber(camWidth, camHeight);
 
+	//Set up haar xml
+	finder.setup("haarcascade_frontalface_default.xml");
+
 	videoInverted.allocate(camWidth, camHeight, OF_PIXELS_RGB);
 	videoTexture.allocate(videoInverted);
 	ofSetVerticalSync(true);
 
 	//img.load("test.jpg");
-	//finder.setup("haarcascade_frontalface_default.xml");
 	//finder.findHaarObjects(img);
 
 
@@ -46,35 +54,41 @@ void ofApp::update(){
 	vidGrabber.update();
 
 	if (vidGrabber.isFrameNew()) {
-		ofPixels & pixels = vidGrabber.getPixels();
+		//Generate image from pixels
+		ofPixels &pixels = vidGrabber.getPixels();
+		//img.setFromPixels(pixels);
+		cvColorImg.setFromPixels(pixels);
 
-		/*
-		for (int i = 0; i < pixels.size(); i++) {
-			//invert the color of the pixel
-			videoInverted[i] = 255 - pixels[i];
+		//Convert to greyscale image
+		cvGrayImg = cvColorImg;
+
+		//Update every so often
+		if ((ofGetElapsedTimeMillis() - elapsedTime) > FACE_FIND_DELAY) {
+			finder.findHaarObjects(cvGrayImg);
 		}
-		*/
 
-		//load the inverted pixels
-		//videoTexture.loadData(videoInverted);
-		videoTexture.loadData(pixels);
 	}
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 	ofSetHexColor(0xffffff);
-	vidGrabber.draw(20, 20);
-	videoTexture.draw(20 + camWidth, 20, camWidth, camHeight);
-	/*
-	img.draw(0, 0);
+
+	cvGrayImg.draw(0, 0);
 	ofNoFill();
+
+	if (finder.blobs.size() > 0) {
+		ofRectangle cur = finder.blobs[0].boundingRect;
+		ofDrawRectangle(cur.x, cur.y, cur.width, cur.height);
+	}
+
+/*
+	ofLogNotice() << "Num Blobs: " << finder.blobs.size();
 	for (unsigned int i = 0; i < finder.blobs.size(); i++) {
 		ofRectangle cur = finder.blobs[i].boundingRect;
 		ofDrawRectangle(cur.x, cur.y, cur.width, cur.height);
 	}
 	*/
-
 }
 
 //--------------------------------------------------------------
