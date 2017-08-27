@@ -22,6 +22,14 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+		//Haar finder bits
 		ofImage img;
 		ofxCvHaarFinder finder;
+
+		//webcam bits
+		ofVideoGrabber vidGrabber;
+		ofPixels videoInverted;
+		ofTexture videoTexture;
+		int camWidth;
+		int camHeight;
 };
