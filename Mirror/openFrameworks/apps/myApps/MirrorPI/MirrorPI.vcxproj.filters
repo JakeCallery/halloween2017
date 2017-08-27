@@ -64,6 +64,78 @@
     <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp">
       <Filter>addons\ofxOpenCv\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\CLD\src\ETF.cpp">
+      <Filter>addons\ofxCv\libs\CLD\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\CLD\src\fdog.cpp">
+      <Filter>addons\ofxCv\libs\CLD\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Calibration.cpp">
+      <Filter>addons\ofxCv\libs\ofxCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\ContourFinder.cpp">
+      <Filter>addons\ofxCv\libs\ofxCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Distance.cpp">
+      <Filter>addons\ofxCv\libs\ofxCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Flow.cpp">
+      <Filter>addons\ofxCv\libs\ofxCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Helpers.cpp">
+      <Filter>addons\ofxCv\libs\ofxCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Kalman.cpp">
+      <Filter>addons\ofxCv\libs\ofxCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\ObjectFinder.cpp">
+      <Filter>addons\ofxCv\libs\ofxCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\RunningBackground.cpp">
+      <Filter>addons\ofxCv\libs\ofxCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Tracker.cpp">
+      <Filter>addons\ofxCv\libs\ofxCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Utilities.cpp">
+      <Filter>addons\ofxCv\libs\ofxCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Wrappers.cpp">
+      <Filter>addons\ofxCv\libs\ofxCv\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\src\Expression.cpp">
+      <Filter>addons\ofxFaceTracker\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\src\ExpressionClassifier.cpp">
+      <Filter>addons\ofxFaceTracker\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\src\ofxFaceTracker.cpp">
+      <Filter>addons\ofxFaceTracker\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\CLM.cc">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\FCheck.cc">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\FDet.cc">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\IO.cc">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\Patch.cc">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\PAW.cc">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\PDM.cc">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\src\lib\Tracker.cc">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\src\lib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -167,6 +239,69 @@
     </Filter>
     <Filter Include="addons\ofxOpenCv\libs\opencv\include\opencv2\videostab">
       <UniqueIdentifier>{10d2aa47-2aa9-4ece-a054-58adca3e12a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCv">
+      <UniqueIdentifier>{3c478698-5705-4c88-9d5e-cc9ef4f8f5dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCv\src">
+      <UniqueIdentifier>{724d597f-45ac-47da-9643-07b4220ef479}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCv\libs">
+      <UniqueIdentifier>{5d93a42b-ffbf-4760-99df-2b2ae31b8c85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCv\libs\CLD">
+      <UniqueIdentifier>{1bb82e59-3e60-4e49-99b7-3286ed16ff21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCv\libs\CLD\include">
+      <UniqueIdentifier>{b73ea555-d8bd-4bbf-844b-45246cdc0643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCv\libs\CLD\include\CLD">
+      <UniqueIdentifier>{db626c94-9378-4d58-8375-dde33f963833}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCv\libs\CLD\src">
+      <UniqueIdentifier>{19195152-a8b0-437f-97db-a2aacfdf7ef9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCv\libs\ofxCv">
+      <UniqueIdentifier>{6fb52347-9146-451a-a173-92218a3f5649}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCv\libs\ofxCv\include">
+      <UniqueIdentifier>{de5f85c4-3bfd-4b29-971b-54b929bc7c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCv\libs\ofxCv\include\ofxCv">
+      <UniqueIdentifier>{c8b7a77c-5d24-4127-89a7-706a18acb999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCv\libs\ofxCv\src">
+      <UniqueIdentifier>{4fcfe75e-12aa-4865-a27e-d76efce7d98a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFaceTracker">
+      <UniqueIdentifier>{8d26c33a-e807-4ea7-9488-5cd45818934b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFaceTracker\src">
+      <UniqueIdentifier>{583385b8-0dce-435c-b2c7-d712619358d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFaceTracker\libs">
+      <UniqueIdentifier>{c3e2d617-94c0-4667-a686-156343f140ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFaceTracker\libs\FaceTracker">
+      <UniqueIdentifier>{21678f24-e2a4-4a88-b15e-51decf58e3ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFaceTracker\libs\FaceTracker\include">
+      <UniqueIdentifier>{d4dc3b7c-3c5f-48ab-bb8d-d5095ad50179}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker">
+      <UniqueIdentifier>{898df7c4-2b28-4345-81ed-a5c598022092}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFaceTracker\libs\FaceTracker\src">
+      <UniqueIdentifier>{54bd8637-e295-4719-86fb-bcbe06e362ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxFaceTracker\libs\FaceTracker\src\lib">
+      <UniqueIdentifier>{c86c43ab-b121-4728-b145-997e3b7abc2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTiming">
+      <UniqueIdentifier>{97a78ad7-7b2f-437d-b8e8-5d998ce372d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTiming\src">
+      <UniqueIdentifier>{dee008d1-1a11-4633-a214-8591df329c4b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -727,6 +862,108 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\videostab.hpp">
       <Filter>addons\ofxOpenCv\libs\opencv\include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\src\ofxCv.h">
+      <Filter>addons\ofxCv\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\ETF.h">
+      <Filter>addons\ofxCv\libs\CLD\include\CLD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\fdog.h">
+      <Filter>addons\ofxCv\libs\CLD\include\CLD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\imatrix.h">
+      <Filter>addons\ofxCv\libs\CLD\include\CLD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\myvec.h">
+      <Filter>addons\ofxCv\libs\CLD\include\CLD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Calibration.h">
+      <Filter>addons\ofxCv\libs\ofxCv\include\ofxCv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\ContourFinder.h">
+      <Filter>addons\ofxCv\libs\ofxCv\include\ofxCv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Distance.h">
+      <Filter>addons\ofxCv\libs\ofxCv\include\ofxCv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Flow.h">
+      <Filter>addons\ofxCv\libs\ofxCv\include\ofxCv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Helpers.h">
+      <Filter>addons\ofxCv\libs\ofxCv\include\ofxCv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Kalman.h">
+      <Filter>addons\ofxCv\libs\ofxCv\include\ofxCv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\ObjectFinder.h">
+      <Filter>addons\ofxCv\libs\ofxCv\include\ofxCv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\RunningBackground.h">
+      <Filter>addons\ofxCv\libs\ofxCv\include\ofxCv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Tracker.h">
+      <Filter>addons\ofxCv\libs\ofxCv\include\ofxCv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Utilities.h">
+      <Filter>addons\ofxCv\libs\ofxCv\include\ofxCv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Wrappers.h">
+      <Filter>addons\ofxCv\libs\ofxCv\include\ofxCv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\src\Expression.h">
+      <Filter>addons\ofxFaceTracker\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\src\ExpressionClassifier.h">
+      <Filter>addons\ofxFaceTracker\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\src\ofxFaceTracker.h">
+      <Filter>addons\ofxFaceTracker\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\src\ofxFaceTrackerThreaded.h">
+      <Filter>addons\ofxFaceTracker\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\CLM.h">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\FCheck.h">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\FDet.h">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\IO.h">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\Patch.h">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\PAW.h">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\PDM.h">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker\Tracker.h">
+      <Filter>addons\ofxFaceTracker\libs\FaceTracker\include\FaceTracker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\DelayTimer.h">
+      <Filter>addons\ofxTiming\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\FadeTimer.h">
+      <Filter>addons\ofxTiming\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\Hysteresis.h">
+      <Filter>addons\ofxTiming\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\LerpTimer.h">
+      <Filter>addons\ofxTiming\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\ofxTiming.h">
+      <Filter>addons\ofxTiming\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\RateTimer.h">
+      <Filter>addons\ofxTiming\src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

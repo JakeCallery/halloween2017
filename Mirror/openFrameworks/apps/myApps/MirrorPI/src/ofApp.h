@@ -2,6 +2,10 @@
 
 #include "ofMain.h"
 #include "ofxCvHaarFinder.h"
+#include "ofxCv.h"
+
+#include "ofxFaceTracker.h"
+#include "FaceOverlay.h"
 
 class ofApp : public ofBaseApp{
 
@@ -33,4 +37,8 @@ class ofApp : public ofBaseApp{
 		ofVideoGrabber vidGrabber;
 		int camWidth;
 		int camHeight;
+
+		//ofxFaceTracker
+		ofxFaceTracker tracker;
+		FaceOverlay overlay;
 };
