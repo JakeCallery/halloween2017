@@ -1,51 +1,37 @@
 #include "ofApp.h"
 
-using namespace ofxCv;
-
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofSetLogLevel(OF_LOG_VERBOSE);
 	ofLogNotice() << "Starting Up...";
 
-	cam.initGrabber(1280, 720);
-	ofBackground(0);
-	tracker.setup();
+	img.load("test.jpg");
+	finder.setup("haarcascade_frontalface_default.xml");
+	finder.findHaarObjects(img);
+
+
+
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	cam.update();
-	if (cam.isFrameNew()) {
-		tracker.update(toCv(cam));
-	}
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	if (ofGetKeyPressed()) {
-		ofSetColor(255);
-		cam.draw(0, 0);
-		ofSetColor(255, 32);
-		ofSetLineWidth(1);
-		tracker.getImageMesh().drawWireframe();
-		tracker.draw(true);
-	}
-	ofSetColor(255);
-	ofSetLineWidth(2);
-	ofPushStyle();
+	img.draw(0, 0);
 	ofNoFill();
-	ofSetColor(255);
-	overlay.draw(tracker);
-	ofPopStyle();
-	ofDrawBitmapString(ofToString((int)ofGetFrameRate()), 10, 20);
+	for (unsigned int i = 0; i < finder.blobs.size(); i++) {
+		ofRectangle cur = finder.blobs[i].boundingRect;
+		ofDrawRectangle(cur.x, cur.y, cur.width, cur.height);
+	}
 
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-	if (key == 'r') {
-		tracker.reset();
-	}
+
 }
 
 //--------------------------------------------------------------
