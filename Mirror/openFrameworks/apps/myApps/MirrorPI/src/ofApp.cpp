@@ -11,8 +11,8 @@ void ofApp::setup(){
 	elapsedTime = 0;
 
 	//Cam Setup
-	camWidth = 320;
-	camHeight = 240;
+	camWidth = 160;
+	camHeight = 120;
 
 	ofLogNotice() << "Cam Width: " << camWidth;
 	ofLogNotice() << "Cam Height: " << camHeight;
@@ -83,10 +83,6 @@ void ofApp::update(){
 			//Find location from webcam to full screen
 			blobCenterXPercent = lastBlobCenterX / (double)camWidth;
 			blobCenterYPercent = lastBlobCenterY / (double)camHeight;
-
-			ofLogNotice() << "Blob X: " << lastBlobX;
-			ofLogNotice() << "Center X: " << lastBlobCenterX;
-			ofLogNotice() << "Blob Percent: " << blobCenterXPercent;
 
 			overlayImageX = (int)((WINDOW_WIDTH * blobCenterXPercent) - overlayImageCenterOffsetX);
 			overlayImageY = (int)((WINDOW_HEIGHT * blobCenterYPercent) - overlayImageCenterOffsetY);
