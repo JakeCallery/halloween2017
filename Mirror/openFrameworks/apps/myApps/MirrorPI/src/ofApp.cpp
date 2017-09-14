@@ -44,8 +44,10 @@ void ofApp::setup(){
 
 	//Load Images:
 	overlayImage.load("testtikimask.png");
+	overlayImage.rotate90(3);
 	overlayImageCenterOffsetX = int(overlayImage.getWidth() / 2);
 	overlayImageCenterOffsetY = int(overlayImage.getHeight() / 2);
+	
 
 
 }
@@ -84,8 +86,13 @@ void ofApp::update(){
 			blobCenterXPercent = lastBlobCenterX / (double)camWidth;
 			blobCenterYPercent = lastBlobCenterY / (double)camHeight;
 
-			overlayImageX = (int)((WINDOW_WIDTH * blobCenterXPercent) - overlayImageCenterOffsetX);
-			overlayImageY = (int)((WINDOW_HEIGHT * blobCenterYPercent) - overlayImageCenterOffsetY);
+			//Calc target image location
+			overlayImageX = (int)((WINDOW_HEIGHT * blobCenterXPercent) - overlayImageCenterOffsetY);
+			overlayImageY = (int)((WINDOW_WIDTH * blobCenterYPercent) - overlayImageCenterOffsetX);
+
+			//Counteract Camera offset
+			overlayImageX += X_CAM_OFFSET;
+			overlayImageY += Y_CAM_OFFSET;
 		}
 
 	}
@@ -108,8 +115,19 @@ void ofApp::draw(){
 		ofDrawRectangle(cur.x, cur.y, cur.width, cur.height);
 	}
 
-	overlayImage.draw(overlayImageX, overlayImageY);
+	//Handle overlay drawing
+	//overlayImage.setAnchorPercent(overlayImageCenterOffsetX, overlayImageCenterOffsetY);
+	
+	overlayImage.draw(overlayImageY, overlayImageX);
 
+	/*
+	ofPushMatrix();
+	ofTranslate(overlayImageX, overlayImageY);
+	ofRotate(90);
+	overlayImage.setAnchorPercent(overlayImageCenterOffsetX, overlayImageCenterOffsetY);
+	overlayImage.draw(0, 0);
+	ofPopMatrix();
+	*/
 
 }
 
