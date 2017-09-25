@@ -1,6 +1,6 @@
 #include "ofApp.h"
 
-#define FACE_FIND_DELAY 100
+#define FACE_FIND_DELAY 500
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -30,8 +30,11 @@ void ofApp::setup(){
 		}
 	}
 
+	char webcamId;
+	webcamId = '0';
+	int id = webcamId - '0';
 	vidGrabber.setVerbose(false);
-	vidGrabber.setDeviceID(0);
+	vidGrabber.setDeviceID(id);
 	vidGrabber.setDesiredFrameRate(60);
 	vidGrabber.initGrabber(camWidth, camHeight);
 	
@@ -39,11 +42,15 @@ void ofApp::setup(){
 	//Set up haar xml
 	finder.setup("haarcascade_frontalface_default.xml");
 	
+	//Setup framerate
+	ofSetFrameRate(60);
+
 	//Wait for sync
 	ofSetVerticalSync(true);
 
 	//Load Images:
 	overlayImage.load("testtikimask.png");
+	//overlayImage.load("MonsterMask1.png");
 	overlayImage.rotate90(3);
 	overlayImageCenterOffsetX = int(overlayImage.getWidth() / 2);
 	overlayImageCenterOffsetY = int(overlayImage.getHeight() / 2);
@@ -101,40 +108,70 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	
-	//Draw base grayscale image for testing
-	ofSetHexColor(0xFFFFFF);
-	cvGrayImg.draw(0, 0);
-	
-	//Set up vector draw
-	ofSetHexColor(0xff0000);
-	ofNoFill();
+	if (isDebugEnabled) {
+		//Draw base grayscale image for testing
+		ofSetHexColor(0xFFFFFF);
+		cvGrayImg.draw(0, 0);
 
-	//Draw first blob
-	if (finder.blobs.size() > 0) {
-		ofRectangle cur = finder.blobs[0].boundingRect;
-		ofDrawRectangle(cur.x, cur.y, cur.width, cur.height);
+		//Set up vector draw
+		ofSetHexColor(0xff0000);
+		ofNoFill();
+
+		/*
+		//Draw first blob
+		if (finder.blobs.size() > 0) {
+			ofRectangle cur = finder.blobs[0].boundingRect;
+			ofDrawRectangle(cur.x, cur.y, cur.width, cur.height);
+		}
+		*/
+		//Draw all blobs
+		int numBlobs = finder.blobs.size();
+		for (int i = 0; i < numBlobs; i++) {
+			ofRectangle cur = finder.blobs[i].boundingRect;
+			ofDrawRectangle(cur.x, cur.y, cur.width, cur.height);
+		}
 	}
-
-	//Handle overlay drawing
-	//overlayImage.setAnchorPercent(overlayImageCenterOffsetX, overlayImageCenterOffsetY);
 	
+	//Handle overlay drawing
+	ofSetHexColor(0xFFFFFF);
 	overlayImage.draw(overlayImageY, overlayImageX);
 
-	/*
-	ofPushMatrix();
-	ofTranslate(overlayImageX, overlayImageY);
-	ofRotate(90);
-	overlayImage.setAnchorPercent(overlayImageCenterOffsetX, overlayImageCenterOffsetY);
-	overlayImage.draw(0, 0);
-	ofPopMatrix();
-	*/
-
+	//Overlay Debug Text
+	if (isDebugEnabled) {
+		stringstream reportStream;
+		
+		reportStream << "FPS: " << ofGetFrameRate() << "/" << ofGetTargetFrameRate() << endl
+			<< "Blobs Found: " << finder.blobs.size() << endl;
+		
+		ofDrawBitmapString(reportStream.str(), 10, WINDOW_HEIGHT - 30);
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 	if (key == 's' || key == 'S') {
 		vidGrabber.videoSettings();
+	}
+	else if (key == 'f') {
+		maskCount = (maskCount + 1) % NUM_MASKS;
+
+		switch (maskCount) {
+			case 0:
+				overlayImage.load("MonsterMask1.png");
+				break;
+			case 1:
+				overlayImage.load("testtikimask.png");
+				break;
+			default:
+				ofLogNotice() << "Bad Mask Count" << maskCount;
+		}
+
+		overlayImage.rotate90(3);
+		overlayImageCenterOffsetX = int(overlayImage.getWidth() / 2);
+		overlayImageCenterOffsetY = int(overlayImage.getHeight() / 2);
+	}
+	else if (key == 'd') {
+		isDebugEnabled = !isDebugEnabled;
 	}
 }
 

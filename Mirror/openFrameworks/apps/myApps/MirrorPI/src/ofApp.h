@@ -7,6 +7,7 @@
 #define WINDOW_HEIGHT 1080
 #define Y_CAM_OFFSET -500
 #define X_CAM_OFFSET 0
+#define NUM_MASKS 2
 
 class ofApp : public ofBaseApp{
 
@@ -57,5 +58,8 @@ class ofApp : public ofBaseApp{
 		int overlayImageCenterOffsetY;
 		int overlayImageX;
 		int overlayImageY;
+
+		int maskCount = 0;
+		bool isDebugEnabled = true;
 
 };
