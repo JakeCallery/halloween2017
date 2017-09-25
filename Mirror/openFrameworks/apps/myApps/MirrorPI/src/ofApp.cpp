@@ -31,7 +31,16 @@ void ofApp::setup(){
 	}
 
 	char webcamId;
-	webcamId = '0';
+	ofLogNotice() << "Args Size: " << arguments.size() << endl;
+
+	if (arguments.size() > 1) {
+		string arg = arguments.at(1);
+		webcamId = (char)arg.at(0);
+	}
+	else {
+		webcamId = '0';
+	}
+	
 	int id = webcamId - '0';
 	vidGrabber.setVerbose(false);
 	vidGrabber.setDeviceID(id);

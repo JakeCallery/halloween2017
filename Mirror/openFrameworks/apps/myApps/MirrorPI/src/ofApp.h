@@ -62,4 +62,5 @@ class ofApp : public ofBaseApp{
 		int maskCount = 0;
 		bool isDebugEnabled = true;
 
+		vector<string> arguments;
 };
