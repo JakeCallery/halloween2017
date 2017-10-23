@@ -2,7 +2,8 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	ofSetLogLevel(OF_LOG_VERBOSE);
+	//ofSetLogLevel(OF_LOG_VERBOSE);
+	ofSetLogLevel(OF_LOG_NOTICE);
 	ofLogNotice() << "Starting Up...";
 
 	//Inits
@@ -78,11 +79,14 @@ void ofApp::setup(){
 	ofSetVerticalSync(true);
 
 	//Load Images:
-	overlayImage.load("testtikimask.png");
-	//overlayImage.load("MonsterMask1.png");
-	overlayImage.rotate90(3);
-	overlayImageCenterOffsetX = int(overlayImage.getWidth() / 2);
-	overlayImageCenterOffsetY = int(overlayImage.getHeight() / 2);
+	tikiMaskImage.load("TikiMask.png");
+	tikiMaskImage.rotate90(1);
+	zombieImage.load("Zombie.png");
+	zombieImage.rotate90(1);
+	frankensteinImage.load("Frankenstein.png");
+	frankensteinImage.rotate90(1);
+	wolfManImage.load("WolfMan.png");
+	wolfManImage.rotate90(1);
 }
 
 //--------------------------------------------------------------
@@ -141,11 +145,11 @@ void ofApp::update(){
 			//update serial here
 
 			unsigned char initByte = 255;
-			unsigned char redByte = 1;
+			unsigned char redByte = 0;
 			unsigned char greenByte = 0;
 			unsigned char blueByte = 0;
 			unsigned char yellowByte = 0;
-			unsigned char whiteByte = 1;
+			unsigned char whiteByte = 0;
 
 			unsigned char buf[6]{initByte,redByte,greenByte,blueByte,yellowByte,whiteByte};
 			switchesDevice.writeBytes(&buf[0], 6);
@@ -183,19 +187,33 @@ void ofApp::update(){
 
 				//Switch Images
 				if ((int)commandBytes[0] == 1) {
-					ofLogNotice() << "Red Mask" << endl;
+					//ofLogNotice() << "Red Mask" << endl;
+					currentImage = zombieImage;
+					isNoImage = false;
 				}
 				else if ((int)commandBytes[1] == 1) {
-					ofLogNotice() << "Green Mask" << endl;
+					//ofLogNotice() << "Green Mask" << endl;
+					currentImage = frankensteinImage;
+					isNoImage = false;
 				}
 				else if ((int)commandBytes[2] == 1) {
-					ofLogNotice() << "Blue Mask" << endl;
+					//ofLogNotice() << "Blue Mask" << endl;
+					currentImage = wolfManImage;
+					isNoImage = false;
 				}
 				else if ((int)commandBytes[3] == 1) {
-					ofLogNotice() << "Yellow Mask" << endl;
+					//ofLogNotice() << "Yellow Mask" << endl;
+					currentImage = tikiMaskImage;
+					isNoImage = false;
 				}
 				else if ((int)commandBytes[4] == 1) {
-					ofLogNotice() << "White Mask" << endl;
+					//ofLogNotice() << "White Mask" << endl;
+					isNoImage = true;
+				}
+
+				if (!isNoImage) {
+					overlayImageCenterOffsetX = int(currentImage.getWidth() / 2);
+					overlayImageCenterOffsetY = int(currentImage.getHeight() / 2);
 				}
 
 			}
@@ -252,8 +270,10 @@ void ofApp::draw(){
 	
 	//Handle overlay drawing
 	ofSetHexColor(0xFFFFFF);
-	overlayImage.draw(overlayImageY, overlayImageX);
-
+	if (!isNoImage) {
+		currentImage.draw(overlayImageY, overlayImageX);
+	}
+	
 	//Overlay Debug Text
 	if (isDebugEnabled) {
 		stringstream reportStream;
@@ -269,24 +289,6 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
 	if (key == 's' || key == 'S') {
 		vidGrabber.videoSettings();
-	}
-	else if (key == 'f') {
-		maskCount = (maskCount + 1) % NUM_MASKS;
-
-		switch (maskCount) {
-			case 0:
-				overlayImage.load("MonsterMask1.png");
-				break;
-			case 1:
-				overlayImage.load("testtikimask.png");
-				break;
-			default:
-				ofLogNotice() << "Bad Mask Count" << maskCount;
-		}
-
-		overlayImage.rotate90(3);
-		overlayImageCenterOffsetX = int(overlayImage.getWidth() / 2);
-		overlayImageCenterOffsetY = int(overlayImage.getHeight() / 2);
 	}
 	else if (key == 'd') {
 		isDebugEnabled = !isDebugEnabled;

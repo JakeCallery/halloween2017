@@ -9,8 +9,8 @@
 #define X_CAM_OFFSET 0
 #define NUM_MASKS 2
 
-#define FACE_FIND_DELAY 250
-#define SERIAL_SEND_DELAY 1000
+#define FACE_FIND_DELAY 100
+#define SERIAL_SEND_DELAY 16
 
 class ofApp : public ofBaseApp{
 
@@ -45,7 +45,12 @@ class ofApp : public ofBaseApp{
 		int camHeight = 240;
 
 		//Images
-		ofImage overlayImage;
+		ofImage tikiMaskImage;
+		ofImage zombieImage;
+		ofImage frankensteinImage;
+		ofImage wolfManImage;
+		ofImage currentImage;
+		bool isNoImage = true;
 
 		//Helpers
 		int lastBlobX;

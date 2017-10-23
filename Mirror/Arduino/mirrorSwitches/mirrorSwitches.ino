@@ -134,6 +134,6 @@ void loop() {
   digitalWrite(BLUE_LED_PIN, blueSwitchState);
   digitalWrite(WHITE_LED_PIN, whiteSwitchState);
 
-  delay(1000);
+  delay(16);
   
 }
