@@ -27,7 +27,7 @@ unsigned char commandBytes[5] = {2,2,2,2,2};
 void setup() {
   // put your setup code here, to run once:  
   Serial.begin(57600);
-  Serial.print("Setup");
+  //Serial.print("Setup");
   
   pinMode(YELLOW_SWITCH_PIN, INPUT);
   pinMode(YELLOW_LED_PIN, OUTPUT);
@@ -118,6 +118,15 @@ void loop() {
   } else {
     whiteSwitchState = digitalRead(WHITE_SWITCH_PIN);    
   }
+
+  //Write state out to PC/Main App
+  //init byte
+  Serial.print(char(255));
+  Serial.print(char(digitalRead(RED_SWITCH_PIN)));
+  Serial.print(char(digitalRead(GREEN_SWITCH_PIN)));
+  Serial.print(char(digitalRead(BLUE_SWITCH_PIN)));
+  Serial.print(char(digitalRead(YELLOW_SWITCH_PIN)));
+  Serial.print(char(digitalRead(WHITE_SWITCH_PIN)));
  
   digitalWrite(YELLOW_LED_PIN, yellowSwitchState);
   digitalWrite(RED_LED_PIN, redSwitchState);
@@ -125,6 +134,6 @@ void loop() {
   digitalWrite(BLUE_LED_PIN, blueSwitchState);
   digitalWrite(WHITE_LED_PIN, whiteSwitchState);
 
-  delay(16);
+  delay(1000);
   
 }

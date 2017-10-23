@@ -154,6 +154,54 @@ void ofApp::update(){
 			serialWriteElapsedTime = ofGetElapsedTimeMillis();
 		}
 
+		//Read in from Arduino
+		unsigned char inByte = 0;
+		unsigned int numBytes = switchesDevice.available();
+
+		for (int i = 0; i < numBytes; i++) {
+			inByte = switchesDevice.readByte();
+
+			if ((int)inByte == 255) {
+				//ofLogNotice() << "Caught Init Byte" << endl;
+				fillingCommand = true;
+				numCommandBytes = 0;
+			}
+			else if (fillingCommand && numCommandBytes < 5) {
+				commandBytes[numCommandBytes] = inByte;
+				numCommandBytes++;
+			}
+
+			if (fillingCommand && numCommandBytes >= 5) {
+				fillingCommand = false;
+
+				//ofLogNotice() << "Command Full: ";
+				//ofLogNotice() << (int)commandBytes[0] << " ";
+				//ofLogNotice() << (int)commandBytes[1] << " ";
+				//ofLogNotice() << (int)commandBytes[2] << " ";
+				//ofLogNotice() << (int)commandBytes[3] << " ";
+				//ofLogNotice() << (int)commandBytes[4] << endl;
+
+				//Switch Images
+				if ((int)commandBytes[0] == 1) {
+					ofLogNotice() << "Red Mask" << endl;
+				}
+				else if ((int)commandBytes[1] == 1) {
+					ofLogNotice() << "Green Mask" << endl;
+				}
+				else if ((int)commandBytes[2] == 1) {
+					ofLogNotice() << "Blue Mask" << endl;
+				}
+				else if ((int)commandBytes[3] == 1) {
+					ofLogNotice() << "Yellow Mask" << endl;
+				}
+				else if ((int)commandBytes[4] == 1) {
+					ofLogNotice() << "White Mask" << endl;
+				}
+
+			}
+		}
+
+/*
 		//Log out info from Arduino
 		static string str;
 		stringstream ss;
@@ -171,7 +219,7 @@ void ofApp::update(){
 			ofLog(OF_LOG_NOTICE, str);
 			anyBytes = false;
 		}
-
+*/
 	}
 }
 

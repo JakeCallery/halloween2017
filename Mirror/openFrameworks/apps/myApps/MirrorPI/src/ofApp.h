@@ -10,7 +10,7 @@
 #define NUM_MASKS 2
 
 #define FACE_FIND_DELAY 250
-#define SERIAL_SEND_DELAY 100
+#define SERIAL_SEND_DELAY 1000
 
 class ofApp : public ofBaseApp{
 
@@ -73,4 +73,8 @@ class ofApp : public ofBaseApp{
 		ofSerial lightsDevice;
 
 		vector<string> arguments;
+
+		bool fillingCommand = false;
+		unsigned int numCommandBytes = 0;
+		unsigned char commandBytes[5] = {2,2,2,2,2};
 };
