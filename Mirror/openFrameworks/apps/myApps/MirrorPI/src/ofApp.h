@@ -9,6 +9,9 @@
 #define X_CAM_OFFSET 0
 #define NUM_MASKS 2
 
+#define FACE_FIND_DELAY 250
+#define SERIAL_SEND_DELAY 100
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -28,7 +31,8 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		uint64_t elapsedTime;
+		uint64_t faceFindElapsedTime;
+		uint64_t serialWriteElapsedTime;
 
 		//Haar finder bits
 		ofxCvGrayscaleImage cvGrayImg;
@@ -61,6 +65,12 @@ class ofApp : public ofBaseApp{
 
 		int maskCount = 0;
 		bool isDebugEnabled = true;
+
+		string switchesCOM;
+		string lightsCOM;
+
+		ofSerial switchesDevice;
+		ofSerial lightsDevice;
 
 		vector<string> arguments;
 };

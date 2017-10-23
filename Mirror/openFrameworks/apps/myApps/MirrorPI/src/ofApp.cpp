@@ -1,18 +1,16 @@
 #include "ofApp.h"
 
-#define FACE_FIND_DELAY 500
-
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofSetLogLevel(OF_LOG_VERBOSE);
 	ofLogNotice() << "Starting Up...";
 
 	//Inits
-	elapsedTime = 0;
+	faceFindElapsedTime = 0;
 
 	//Cam Setup
-	camWidth = 160;
-	camHeight = 120;
+	camWidth = 320;
+	camHeight = 240;
 
 	ofLogNotice() << "Cam Width: " << camWidth;
 	ofLogNotice() << "Cam Height: " << camHeight;
@@ -33,6 +31,7 @@ void ofApp::setup(){
 	char webcamId;
 	ofLogNotice() << "Args Size: " << arguments.size() << endl;
 
+	//Setup hardware from arguments
 	if (arguments.size() > 1) {
 		string arg = arguments.at(1);
 		webcamId = (char)arg.at(0);
@@ -41,6 +40,27 @@ void ofApp::setup(){
 		webcamId = '0';
 	}
 	
+	if (arguments.size() > 2) {
+		switchesCOM = arguments.at(2);
+		ofLogNotice() << "Using switchesCOM: " << switchesCOM << endl;
+	}
+	else {
+		switchesCOM = "COM10";
+		ofLogNotice() << "Defaulting switchesCOM: " << switchesCOM << endl;
+	}
+
+	if (arguments.size() > 3) {
+		ofLogNotice() << "Using lightsCOM: " << lightsCOM << endl;
+		lightsCOM = arguments.at(3);
+	}
+	else {
+		lightsCOM = "COM11";
+		ofLogNotice() << "Defaulting lightsCOM: " << lightsCOM << endl;
+	}
+
+	switchesDevice.setup(switchesCOM, 57600);
+	//lightsDevice.setup(lightsCOM, 57600);
+
 	int id = webcamId - '0';
 	vidGrabber.setVerbose(false);
 	vidGrabber.setDeviceID(id);
@@ -63,15 +83,14 @@ void ofApp::setup(){
 	overlayImage.rotate90(3);
 	overlayImageCenterOffsetX = int(overlayImage.getWidth() / 2);
 	overlayImageCenterOffsetY = int(overlayImage.getHeight() / 2);
-	
-
-
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 	ofBackground(0, 0, 0);
 	vidGrabber.update();
+
+
 
 	if (vidGrabber.isFrameNew()) {
 		//Generate grayscale image from pixels
@@ -82,8 +101,9 @@ void ofApp::update(){
 		cvGrayImg = cvColorImg;
 
 		//Update every so often
-		if ((ofGetElapsedTimeMillis() - elapsedTime) > FACE_FIND_DELAY) {
+		if ((ofGetElapsedTimeMillis() - faceFindElapsedTime) > FACE_FIND_DELAY) {
 			finder.findHaarObjects(cvGrayImg);
+			faceFindElapsedTime = ofGetElapsedTimeMillis();
 		}
 
 		
@@ -109,6 +129,47 @@ void ofApp::update(){
 			//Counteract Camera offset
 			overlayImageX += X_CAM_OFFSET;
 			overlayImageY += Y_CAM_OFFSET;
+		}
+
+	}
+
+	//Update Switch Colors
+	if (switchesDevice.isInitialized()) {
+		//R,G,B,Y,W (0 or 1)
+		if ((ofGetElapsedTimeMillis() - serialWriteElapsedTime) > SERIAL_SEND_DELAY) {
+
+			//update serial here
+
+			unsigned char initByte = 255;
+			unsigned char redByte = 1;
+			unsigned char greenByte = 0;
+			unsigned char blueByte = 0;
+			unsigned char yellowByte = 0;
+			unsigned char whiteByte = 1;
+
+			unsigned char buf[6]{initByte,redByte,greenByte,blueByte,yellowByte,whiteByte};
+			switchesDevice.writeBytes(&buf[0], 6);
+
+			//reset timer
+			serialWriteElapsedTime = ofGetElapsedTimeMillis();
+		}
+
+		//Log out info from Arduino
+		static string str;
+		stringstream ss;
+		char ch;
+		int readLimit = 1000;
+		bool anyBytes = false;
+		while ((ch = switchesDevice.readByte()) > 0 && readLimit-- > 0) {
+			ss << ch;
+			anyBytes = true;
+		}
+
+		if (anyBytes) {
+			ofLogNotice() << "Bytes!" << endl;
+			str += ss.str();
+			ofLog(OF_LOG_NOTICE, str);
+			anyBytes = false;
 		}
 
 	}

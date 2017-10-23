@@ -20,10 +20,13 @@ int greenSwitchState = LOW;
 int blueSwitchState = LOW;
 int whiteSwitchState = LOW;
 
+bool fillingCommand = false;
+int numCommandBytes = 0;
+unsigned char commandBytes[5] = {2,2,2,2,2};
 
 void setup() {
   // put your setup code here, to run once:  
-  Serial.begin(9600);
+  Serial.begin(57600);
   Serial.print("Setup");
   
   pinMode(YELLOW_SWITCH_PIN, INPUT);
@@ -45,18 +48,83 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  yellowSwitchState = digitalRead(YELLOW_SWITCH_PIN);
-  redSwitchState = digitalRead(RED_SWITCH_PIN);
-  greenSwitchState = digitalRead(GREEN_SWITCH_PIN);
-  blueSwitchState = digitalRead(BLUE_SWITCH_PIN);
-  whiteSwitchState = digitalRead(WHITE_SWITCH_PIN);
-  
+//TODO: Capture all bytes and update as needed
+  //for now drop partial commands, wait for init byte
+  unsigned char inByte = 0;
+  int numBytes = Serial.available();
+  for(int i = 0; i < numBytes; i++){
+      inByte = Serial.read();
+      //Serial.print("Byte: ");
+      //Serial.println(inByte);
+      //Serial.print("===== NUM BYTES: ");
+      //Serial.println(numBytes);
+      if((int)inByte == 255){
+        //We are now filling the command
+        //Serial.print("=== INIT BYTE: ");
+        //Serial.println(numBytes);
+        fillingCommand = true;
+        numCommandBytes = 0;
+        //Serial.println("******************** Filling Command...");
+      } else if(fillingCommand && numCommandBytes < 5){
+//        Serial.print("Filling: ");
+//        Serial.println(inByte);
+        commandBytes[numCommandBytes] = inByte;
+        numCommandBytes++;
+      }
+      
+      if(fillingCommand && numCommandBytes >= 5){
+        fillingCommand = false;
+//        Serial.println("$$$$$$$$$$$$$$$$$$$");
+//        Serial.print((int)commandBytes[0]);
+//        Serial.print((int)commandBytes[1]);
+//        Serial.print((int)commandBytes[2]);
+//        Serial.print((int)commandBytes[3]);
+//        Serial.print((int)commandBytes[4]);
+//        Serial.println("$$$$$$$$$$$$$$$$$$$");
+      }
+  }
+
+  if(fillingCommand && numCommandBytes < 5){
+//    Serial.print("=== DIDN'T GET ALL BYTES IN THIS READ:  ");
+//    Serial.println(numCommandBytes);
+  }
+
+  if((int)commandBytes[0] == 1){
+    redSwitchState = HIGH;
+  } else {
+    redSwitchState = digitalRead(RED_SWITCH_PIN);  
+  }
+
+  if((int)commandBytes[1] == 1){
+    greenSwitchState = HIGH;
+  } else {
+    greenSwitchState = digitalRead(GREEN_SWITCH_PIN);
+  }
+
+  if((int)commandBytes[2] == 1){
+    blueSwitchState = HIGH;
+  } else {
+    blueSwitchState = digitalRead(BLUE_SWITCH_PIN);  
+  }
+
+  if((int)commandBytes[3] == 1){
+    yellowSwitchState = HIGH;
+  } else {
+    yellowSwitchState = digitalRead(YELLOW_SWITCH_PIN);  
+  }
+
+  if((int)commandBytes[4] == 1){
+    whiteSwitchState = HIGH;
+  } else {
+    whiteSwitchState = digitalRead(WHITE_SWITCH_PIN);    
+  }
+ 
   digitalWrite(YELLOW_LED_PIN, yellowSwitchState);
   digitalWrite(RED_LED_PIN, redSwitchState);
   digitalWrite(GREEN_LED_PIN, greenSwitchState);
   digitalWrite(BLUE_LED_PIN, blueSwitchState);
   digitalWrite(WHITE_LED_PIN, whiteSwitchState);
 
- 
+  delay(16);
   
 }
