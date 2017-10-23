@@ -5,7 +5,7 @@
 
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
-#define Y_CAM_OFFSET -500
+#define Y_CAM_OFFSET 500
 #define X_CAM_OFFSET 0
 #define NUM_MASKS 2
 

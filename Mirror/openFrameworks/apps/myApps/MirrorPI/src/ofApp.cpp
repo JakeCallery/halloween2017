@@ -10,8 +10,8 @@ void ofApp::setup(){
 	faceFindElapsedTime = 0;
 
 	//Cam Setup
-	camWidth = 320;
-	camHeight = 240;
+	camWidth = 160;
+	camHeight = 120;
 
 	ofLogNotice() << "Cam Width: " << camWidth;
 	ofLogNotice() << "Cam Height: " << camHeight;
@@ -127,8 +127,8 @@ void ofApp::update(){
 			blobCenterYPercent = lastBlobCenterY / (double)camHeight;
 
 			//Calc target image location
-			overlayImageX = (int)((WINDOW_HEIGHT * blobCenterXPercent) - overlayImageCenterOffsetY);
-			overlayImageY = (int)((WINDOW_WIDTH * blobCenterYPercent) - overlayImageCenterOffsetX);
+			overlayImageX = (int)((WINDOW_HEIGHT * (1 - blobCenterXPercent)) - overlayImageCenterOffsetY);
+			overlayImageY = (int)((WINDOW_WIDTH * (1- blobCenterYPercent)) - overlayImageCenterOffsetX);
 
 			//Counteract Camera offset
 			overlayImageX += X_CAM_OFFSET;
@@ -287,6 +287,35 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+	if (key == 'r') {
+		currentImage = zombieImage;
+		isNoImage = false;
+	}
+	
+	if (key == 'g') {
+		currentImage = frankensteinImage;
+		isNoImage = false;
+	}
+
+	if (key == 'b') {
+		currentImage = wolfManImage;
+		isNoImage = false;
+	}
+
+	if (key == 'y') {
+		currentImage = tikiMaskImage;
+		isNoImage = false;
+	}
+
+	if (key == 'w') {
+		isNoImage = true;
+	}
+	
+	if (!isNoImage) {
+		overlayImageCenterOffsetX = int(currentImage.getWidth() / 2);
+		overlayImageCenterOffsetY = int(currentImage.getHeight() / 2);
+	}
+
 	if (key == 's' || key == 'S') {
 		vidGrabber.videoSettings();
 	}
