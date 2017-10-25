@@ -9,7 +9,7 @@
 #define X_CAM_OFFSET 0
 #define NUM_MASKS 2
 
-#define FACE_FIND_DELAY 100
+#define FACE_FIND_DELAY 16
 #define SERIAL_SEND_DELAY 16
 
 class ofApp : public ofBaseApp{
@@ -46,6 +46,7 @@ class ofApp : public ofBaseApp{
 
 		//Images
 		ofImage tikiMaskImage;
+		ofImage jasonMaskImage;
 		ofImage zombieImage;
 		ofImage frankensteinImage;
 		ofImage wolfManImage;

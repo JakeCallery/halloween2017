@@ -10,8 +10,8 @@ void ofApp::setup(){
 	faceFindElapsedTime = 0;
 
 	//Cam Setup
-	camWidth = 160;
-	camHeight = 120;
+	camWidth = 320;
+	camHeight = 240;
 
 	ofLogNotice() << "Cam Width: " << camWidth;
 	ofLogNotice() << "Cam Height: " << camHeight;
@@ -60,7 +60,7 @@ void ofApp::setup(){
 	}
 
 	switchesDevice.setup(switchesCOM, 57600);
-	//lightsDevice.setup(lightsCOM, 57600);
+	lightsDevice.setup(lightsCOM, 57600);
 
 	int id = webcamId - '0';
 	vidGrabber.setVerbose(false);
@@ -79,8 +79,10 @@ void ofApp::setup(){
 	ofSetVerticalSync(true);
 
 	//Load Images:
-	tikiMaskImage.load("TikiMask.png");
-	tikiMaskImage.rotate90(1);
+	//tikiMaskImage.load("TikiMask.png");
+	//tikiMaskImage.rotate90(1);
+	jasonMaskImage.load("JasonMask.png");
+	jasonMaskImage.rotate90(1);
 	zombieImage.load("Zombie.png");
 	zombieImage.rotate90(1);
 	frankensteinImage.load("Frankenstein.png");
@@ -203,7 +205,7 @@ void ofApp::update(){
 				}
 				else if ((int)commandBytes[3] == 1) {
 					//ofLogNotice() << "Yellow Mask" << endl;
-					currentImage = tikiMaskImage;
+					currentImage = jasonMaskImage;
 					isNoImage = false;
 				}
 				else if ((int)commandBytes[4] == 1) {
@@ -303,7 +305,7 @@ void ofApp::keyPressed(int key){
 	}
 
 	if (key == 'y') {
-		currentImage = tikiMaskImage;
+		currentImage = jasonMaskImage;
 		isNoImage = false;
 	}
 
