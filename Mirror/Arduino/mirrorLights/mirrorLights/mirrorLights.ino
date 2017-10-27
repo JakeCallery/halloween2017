@@ -36,9 +36,6 @@ void setup() {
   strip.begin();
   strip.show(); // Initialize all pixels to 'off'
 
-  halfLights();
-  strip.show();
-
 }
 
 
@@ -67,10 +64,11 @@ void loop() {
           noLights();
           strip.show();  
         } 
-        else if ((int)commandBytes[0] == 1)
+        //else if ((int)commandBytes[0] == 1)
+        else
         {
           //Half lights
-          halfLights();
+          halfLights((int)commandBytes[0]);
           strip.show();  
         } 
       }
@@ -84,13 +82,13 @@ void noLights() {
   }
 }
 
-void halfLights(){
+void halfLights(int brightness){
  for(int i = 0; i < strip.numPixels(); i++)
   {
     if(i % 2 == 0)
     //if(true)
     {
-      strip.setPixelColor(i, strip.Color(64,64,64));  
+      strip.setPixelColor(i, strip.Color(brightness,brightness,brightness));  
     }
   }
 }

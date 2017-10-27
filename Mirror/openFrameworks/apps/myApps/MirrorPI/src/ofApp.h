@@ -11,7 +11,8 @@
 #define NUM_MASKS 2
 
 #define FACE_FIND_DELAY 16
-#define SERIAL_SEND_DELAY 16
+#define SWITCHES_DEVICE_SEND_DELAY 16
+#define LIGHTS_DEVICE_SEND_DELAY 1000
 
 class ofApp : public ofBaseApp{
 
@@ -33,7 +34,8 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		uint64_t faceFindElapsedTime;
-		uint64_t serialWriteElapsedTime;
+		uint64_t switchesDeviceWriteElapsedTime;
+		uint64_t lightsDeviceWriteElapsedTime;
 
 		//GUI Panels
 		ofxPanel adjustmentPanel;
@@ -44,6 +46,7 @@ class ofApp : public ofBaseApp{
 		ofxFloatSlider maskHorizontalOffsetSlider;
 		ofxFloatSlider maskVerticalPosScaleSlider;
 		ofxFloatSlider maskHorizontalPosScaleSlider;
+		ofxFloatSlider lightLevelSlider;
 
 		//Haar finder bits
 		ofxCvGrayscaleImage cvGrayImg;

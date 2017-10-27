@@ -51,8 +51,8 @@ void ofApp::setup(){
 	}
 
 	if (arguments.size() > 3) {
-		ofLogNotice() << "Using lightsCOM: " << lightsCOM << endl;
 		lightsCOM = arguments.at(3);
+		ofLogNotice() << "Using lightsCOM: " << lightsCOM << endl;
 	}
 	else {
 		lightsCOM = "COM11";
@@ -61,6 +61,9 @@ void ofApp::setup(){
 
 	switchesDevice.setup(switchesCOM, 57600);
 	lightsDevice.setup(lightsCOM, 57600);
+
+	switchesDeviceWriteElapsedTime = 0;
+	lightsDeviceWriteElapsedTime = 0;
 
 	int id = webcamId - '0';
 	vidGrabber.setVerbose(false);
@@ -93,11 +96,12 @@ void ofApp::setup(){
 	//Setup GUI
 	adjustmentPanel.setup("AdjustmentPanel");
 	adjustmentPanel.setPosition(350, 0);
-	adjustmentPanel.add(maskOverScaleSlider.setup("OverScale", 1, 0.1, 10.0));
-	adjustmentPanel.add(maskVerticalOffsetSlider.setup("Vertical Offset", 0, -500.0, 500));
+	adjustmentPanel.add(maskOverScaleSlider.setup("OverScale", 10.0, 0.1, 20.0));
+	adjustmentPanel.add(maskVerticalOffsetSlider.setup("Vertical Offset", -500, -1000.0, 1000));
 	adjustmentPanel.add(maskHorizontalOffsetSlider.setup("Horizontal Offset", 0, -200, 200));
-	adjustmentPanel.add(maskVerticalPosScaleSlider.setup("Vert Pos Scale", 1, 0.01, 3.0));
-	adjustmentPanel.add(maskHorizontalPosScaleSlider.setup("Horiz Pos Scale", 1, 0.01, 3.0));
+	adjustmentPanel.add(maskVerticalPosScaleSlider.setup("Vert Pos Scale", 1, 0.01, 5.0));
+	adjustmentPanel.add(maskHorizontalPosScaleSlider.setup("Horiz Pos Scale", 1, 0.01, 5.0));
+	adjustmentPanel.add(lightLevelSlider.setup("Lights Level", 0.0, 0.0, 254));
 
 }
 
@@ -160,7 +164,7 @@ void ofApp::update(){
 	//Update Switch Colors
 	if (switchesDevice.isInitialized()) {
 		//R,G,B,Y,W (0 or 1)
-		if ((ofGetElapsedTimeMillis() - serialWriteElapsedTime) > SERIAL_SEND_DELAY) {
+		if ((ofGetElapsedTimeMillis() - switchesDeviceWriteElapsedTime) > SWITCHES_DEVICE_SEND_DELAY) {
 
 			//update serial here
 
@@ -175,7 +179,7 @@ void ofApp::update(){
 			switchesDevice.writeBytes(&buf[0], 6);
 
 			//reset timer
-			serialWriteElapsedTime = ofGetElapsedTimeMillis();
+			switchesDeviceWriteElapsedTime = ofGetElapsedTimeMillis();
 		}
 
 		//Read in from Arduino
@@ -236,6 +240,22 @@ void ofApp::update(){
 					overlayImageCenterOffsetY = int(currentImage.getHeight() / 2);
 				}
 
+			}
+		}
+
+		if (lightsDevice.isInitialized()) {
+			if ((ofGetElapsedTimeMillis() - lightsDeviceWriteElapsedTime) > LIGHTS_DEVICE_SEND_DELAY) {
+				
+				//reset timer
+				lightsDeviceWriteElapsedTime = ofGetElapsedTimeMillis();
+
+				unsigned char initByte = 255;
+				unsigned char levelByte = (unsigned char)lightLevelSlider;
+
+				ofLogNotice() << "Light Level: " << levelByte << endl;
+
+				unsigned char buf[2] = { initByte, levelByte };
+				lightsDevice.writeBytes(&buf[0], 2);
 			}
 		}
 
