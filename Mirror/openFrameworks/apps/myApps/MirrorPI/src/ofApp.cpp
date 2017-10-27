@@ -97,10 +97,10 @@ void ofApp::setup(){
 	adjustmentPanel.setup("AdjustmentPanel");
 	adjustmentPanel.setPosition(350, 0);
 	adjustmentPanel.add(maskOverScaleSlider.setup("OverScale", 10.0, 0.1, 20.0));
-	adjustmentPanel.add(maskVerticalOffsetSlider.setup("Vertical Offset", -500, -1000.0, 1000));
-	adjustmentPanel.add(maskHorizontalOffsetSlider.setup("Horizontal Offset", 0, -200, 200));
-	adjustmentPanel.add(maskVerticalPosScaleSlider.setup("Vert Pos Scale", 1, 0.01, 5.0));
-	adjustmentPanel.add(maskHorizontalPosScaleSlider.setup("Horiz Pos Scale", 1, 0.01, 5.0));
+	adjustmentPanel.add(maskVerticalOffsetSlider.setup("Vertical Offset", 500, -1000.0, 1000));
+	adjustmentPanel.add(maskHorizontalOffsetSlider.setup("Horizontal Offset", 0, -200, 1000));
+	adjustmentPanel.add(maskVerticalPosScaleSlider.setup("Vert Pos Scale", 1.0, 0.01, 2.0));
+	adjustmentPanel.add(maskHorizontalPosScaleSlider.setup("Horiz Pos Scale", 0.5, 0.01, 2.0));
 	adjustmentPanel.add(lightLevelSlider.setup("Lights Level", 0.0, 0.0, 254));
 
 }
@@ -139,8 +139,8 @@ void ofApp::update(){
 			lastBlobCenterY = lastBlobY + (int)(lastBlobHeight / 2);
 
 			//Find location from webcam to full screen
-			blobCenterXPercent = lastBlobCenterX / (double)camWidth;
-			blobCenterYPercent = lastBlobCenterY / (double)camHeight;
+			blobCenterXPercent = lastBlobCenterX / ((double)camWidth * maskHorizontalPosScaleSlider);
+			blobCenterYPercent = lastBlobCenterY / ((double)camHeight * maskVerticalPosScaleSlider);
 
 			//Calc target image location
 			overlayImageX = (int)((WINDOW_HEIGHT * (1 - blobCenterXPercent)) - overlayImageCenterOffsetY);
@@ -249,11 +249,9 @@ void ofApp::update(){
 				//reset timer
 				lightsDeviceWriteElapsedTime = ofGetElapsedTimeMillis();
 
+				//Send bytes
 				unsigned char initByte = 255;
 				unsigned char levelByte = (unsigned char)lightLevelSlider;
-
-				ofLogNotice() << "Light Level: " << levelByte << endl;
-
 				unsigned char buf[2] = { initByte, levelByte };
 				lightsDevice.writeBytes(&buf[0], 2);
 			}
