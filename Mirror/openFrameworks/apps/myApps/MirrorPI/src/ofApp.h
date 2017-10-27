@@ -85,15 +85,19 @@ class ofApp : public ofBaseApp{
 		int maskCount = 0;
 		bool isDebugEnabled = true;
 
+		vector<string> arguments;
+
+		//Serial Devices
 		string switchesCOM;
 		string lightsCOM;
 
 		ofSerial switchesDevice;
 		ofSerial lightsDevice;
 
-		vector<string> arguments;
-
 		bool fillingCommand = false;
 		unsigned int numCommandBytes = 0;
 		unsigned char commandBytes[5] = {2,2,2,2,2};
+
+		//Smoothing
+		bool hasBlobs = false;
 };

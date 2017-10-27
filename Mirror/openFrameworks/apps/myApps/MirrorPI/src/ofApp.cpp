@@ -129,6 +129,9 @@ void ofApp::update(){
 
 		
 		if (finder.blobs.size() > 0) {
+			
+			hasBlobs = true;
+
 			ofRectangle cur;
 			cur = finder.blobs[0].boundingRect;
 			lastBlobWidth = cur.width;
@@ -181,6 +184,11 @@ void ofApp::update(){
 			//Counteract Camera offset
 			overlayImageX += (int)maskHorizontalOffsetSlider;
 			overlayImageY += (int)maskVerticalOffsetSlider;
+		}
+		else {
+			hasBlobs = false;
+
+			//Clear averages
 		}
 
 	}
@@ -332,7 +340,7 @@ void ofApp::draw(){
 	
 	//Handle overlay drawing
 	ofSetHexColor(0xFFFFFF);
-	if (!isNoImage) {
+	if (!isNoImage && hasBlobs) {
 		currentImage.draw(overlayImageY, overlayImageX, overlayImageWidth, overlayImageHeight);
 	}
 	
