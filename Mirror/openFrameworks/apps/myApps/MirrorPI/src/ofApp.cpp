@@ -113,8 +113,6 @@ void ofApp::update(){
 	ofBackground(0, 0, 0);
 	vidGrabber.update();
 
-
-
 	if (vidGrabber.isFrameNew()) {
 		//Generate grayscale image from pixels
 		ofPixels &pixels = vidGrabber.getPixels();
@@ -132,24 +130,54 @@ void ofApp::update(){
 
 		
 		if (finder.blobs.size() > 0) {
-			
 			hasBlobs = true;
+			ofRectangle curBlob;
+			
+			if (isFirstRun) {
+				isFirstRun = false;	
+				curBlob = finder.blobs[0].boundingRect;
+				lastUsedBlob = curBlob;
+			}
+			
+			//Find blob closest to last used blob
+			int bestIndex;
+			int smallestDist;
+			for (int b = 0; b < finder.blobs.size(); b++) {
+				ofRectangle thisBlob = finder.blobs[b].boundingRect;
+				lastBlobVec.set(lastUsedBlob.x, lastUsedBlob.y);
+				curBlobVec.set(thisBlob.x, thisBlob.y);
+				distVec = lastBlobVec - curBlobVec;
+				if (b == 0) {
+					smallestDist = distVec.length();
+					bestIndex = b;
+				}
+				else {
+					if (distVec.length() < smallestDist) {
+						smallestDist = distVec.length();
+						bestIndex = b;
+					}
+				}
+			}
+			
+			curBlob = finder.blobs[bestIndex].boundingRect;
+			lastUsedBlob.x = curBlob.x;
+			lastUsedBlob.y = curBlob.y;
+			lastUsedBlob.width = curBlob.width;
+			lastUsedBlob.height = curBlob.height;
+			
+			curBlobWidth = curBlob.width;
+			curBlobHeight = curBlob.height;
+			curBlobX = curBlob.x;
+			curBlobY = curBlob.y;
 
-			ofRectangle cur;
-			cur = finder.blobs[0].boundingRect;
-			lastBlobWidth = cur.width;
-			lastBlobHeight = cur.height;
-			lastBlobX = cur.x;
-			lastBlobY = cur.y;
-
-			blobHeightHistory[blobHistoryIndex] = lastBlobHeight;
+			blobHeightHistory[blobHistoryIndex] = curBlobHeight;
 			blobHistoryIndex++;
 			if (blobHistoryIndex > BLOB_HEIGHT_HISTORY_LENGTH) {
 				blobHistoryIndex = 0;
 			}
 
-			lastBlobCenterX = lastBlobX + (int)(lastBlobWidth / 2);
-			lastBlobCenterY = lastBlobY + (int)(lastBlobHeight / 2);
+			lastBlobCenterX = curBlobX + (int)(curBlobWidth / 2);
+			lastBlobCenterY = curBlobY + (int)(curBlobHeight / 2);
 
 			//Find location from webcam to full screen
 			double xCamCenter = camWidth / 2;
@@ -160,7 +188,7 @@ void ofApp::update(){
 
 			//Calculate "z depth" based on blob rect height
 			//1:1 is 120
-			double horizPosScaleRate = 120.0 / lastBlobHeight;
+			double horizPosScaleRate = 120.0 / curBlobHeight;
 
 			//Scale up distance from center
 			xBlobDistFromCenter *= horizPosScaleRate * maskHorizontalPosScaleSlider;
@@ -362,7 +390,7 @@ void ofApp::draw(){
 		reportStream << "FPS: " << ofGetFrameRate() << "/" << ofGetTargetFrameRate() << endl
 			<< "Blobs Found: " << finder.blobs.size() << endl
 			<< "Mask Center: " << overlayImageX << " / " << overlayImageY << endl
-			<< "Blob Height: " << lastBlobHeight << endl;
+			<< "Blob Height: " << curBlobHeight << endl;
 
 		ofDrawBitmapString(reportStream.str(), 10, WINDOW_HEIGHT - 60);
 

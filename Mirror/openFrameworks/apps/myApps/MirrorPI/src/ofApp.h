@@ -70,10 +70,10 @@ class ofApp : public ofBaseApp{
 		bool isNoImage = true;
 
 		//Helpers
-		int lastBlobX;
-		int lastBlobY;
-		int lastBlobWidth;
-		int lastBlobHeight;
+		int curBlobX;
+		int curBlobY;
+		int curBlobWidth;
+		int curBlobHeight;
 		int lastBlobCenterX;
 		int lastBlobCenterY;
 
@@ -105,6 +105,11 @@ class ofApp : public ofBaseApp{
 
 		//Smoothing
 		bool hasBlobs = false;
+		bool isFirstRun = true;
 		int blobHistoryIndex = 0;
 		int blobHeightHistory[BLOB_HEIGHT_HISTORY_LENGTH];
+		ofRectangle lastUsedBlob;
+		ofVec2f lastBlobVec;
+		ofVec2f curBlobVec;
+		ofVec2f distVec;
 };
