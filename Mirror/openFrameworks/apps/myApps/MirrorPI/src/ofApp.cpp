@@ -146,9 +146,13 @@ void ofApp::update(){
 			double xBlobDistFromCenter = lastBlobCenterX - xCamCenter;
 			double yBlobDistFromCenter = lastBlobCenterY - yCamCenter;
 
+			//Calculate "z depth" based on blob rect height
+			//1:1 is 120
+			double horizPosScaleRate = 120.0 / lastBlobHeight;
+
 			//Scale up distance from center
-			xBlobDistFromCenter *= maskVerticalPosScaleSlider;
-			yBlobDistFromCenter *= maskHorizontalPosScaleSlider;
+			xBlobDistFromCenter *= horizPosScaleRate * maskHorizontalPosScaleSlider;
+			yBlobDistFromCenter *= maskVerticalPosScaleSlider;
 
 			blobCenterXPercent = xBlobDistFromCenter / ((double)camWidth);
 			blobCenterYPercent = yBlobDistFromCenter / ((double)camHeight);
