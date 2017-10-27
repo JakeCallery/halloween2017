@@ -7,7 +7,7 @@
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
 
-#define BLOB_HEIGHT_HISTORY_LENGTH 60
+#define BLOB_HISTORY_LENGTH 60
 
 #define FACE_FIND_DELAY 16
 #define SWITCHES_DEVICE_SEND_DELAY 16
@@ -34,6 +34,7 @@ class ofApp : public ofBaseApp{
 
 		void clearBlobHeightHistory();
 		int averageBlobHeights();
+		ofVec2f averageBlobLoc();
 
 		uint64_t faceFindElapsedTime;
 		uint64_t switchesDeviceWriteElapsedTime;
@@ -107,7 +108,10 @@ class ofApp : public ofBaseApp{
 		bool hasBlobs = false;
 		bool isFirstRun = true;
 		int blobHistoryIndex = 0;
-		int blobHeightHistory[BLOB_HEIGHT_HISTORY_LENGTH];
+		int blobHeightHistory[BLOB_HISTORY_LENGTH];
+		int blobCenterXHistory[BLOB_HISTORY_LENGTH];
+		int blobCenterYHistory[BLOB_HISTORY_LENGTH];
+		
 		ofRectangle lastUsedBlob;
 		ofVec2f lastBlobVec;
 		ofVec2f curBlobVec;

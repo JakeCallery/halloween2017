@@ -171,13 +171,10 @@ void ofApp::update(){
 			curBlobY = curBlob.y;
 
 			blobHeightHistory[blobHistoryIndex] = curBlobHeight;
-			blobHistoryIndex++;
-			if (blobHistoryIndex > BLOB_HEIGHT_HISTORY_LENGTH) {
-				blobHistoryIndex = 0;
-			}
-
+		
 			lastBlobCenterX = curBlobX + (int)(curBlobWidth / 2);
 			lastBlobCenterY = curBlobY + (int)(curBlobHeight / 2);
+
 
 			//Find location from webcam to full screen
 			double xCamCenter = camWidth / 2;
@@ -205,8 +202,23 @@ void ofApp::update(){
 			double screenXCenter = WINDOW_HEIGHT / 2;
 			double screenYCenter = WINDOW_WIDTH / 2;
 
-			overlayImageX = (int)(screenXCenter + xAmountFromCenter);
-			overlayImageY = (int)(screenYCenter + yAmountFromCenter);
+			blobCenterXHistory[blobHistoryIndex] = (int)(screenXCenter + xAmountFromCenter);
+			blobCenterYHistory[blobHistoryIndex] = (int)(screenYCenter + yAmountFromCenter);
+
+			ofVec2f avgLoc = averageBlobLoc();
+			int avgBlobX = (int)avgLoc.x;
+			int avgBlobY = (int)avgLoc.y;
+
+
+			overlayImageX = avgBlobX;
+			overlayImageY = avgBlobY;
+
+			
+			//Update history inex
+			blobHistoryIndex++;
+			if (blobHistoryIndex > BLOB_HISTORY_LENGTH) {
+				blobHistoryIndex = 0;
+			}
 
 
 			//Calc image size
@@ -439,19 +451,33 @@ void ofApp::keyPressed(int key){
 }
 
 void ofApp::clearBlobHeightHistory() {
-	for (int i = 0; i < BLOB_HEIGHT_HISTORY_LENGTH; i++) {
+	for (int i = 0; i < BLOB_HISTORY_LENGTH; i++) {
 		blobHeightHistory[i] = 0;
 	}
 }
 
 int ofApp::averageBlobHeights() {
 	int total = 0;
-	for (int i = 0; i < BLOB_HEIGHT_HISTORY_LENGTH; i++) {
+	for (int i = 0; i < BLOB_HISTORY_LENGTH; i++) {
 		total += blobHeightHistory[i];
 	}
 
-	double avg = total / BLOB_HEIGHT_HISTORY_LENGTH;
+	double avg = total / BLOB_HISTORY_LENGTH;
 	return int(avg);
+}
+
+ofVec2f ofApp::averageBlobLoc() {
+	int totalX = 0;
+	int totalY = 0;
+	for (int i = 0; i < BLOB_HISTORY_LENGTH; i++) {
+		totalX += blobCenterXHistory[i];
+		totalY += blobCenterYHistory[i];
+	}
+
+	double avgX = totalX / BLOB_HISTORY_LENGTH;
+	double avgY = totalY / BLOB_HISTORY_LENGTH;
+
+	return ofVec2f(avgX, avgY);
 }
 
 //--------------------------------------------------------------
