@@ -7,7 +7,7 @@
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
 
-#define BLOB_HISTORY_LENGTH 60
+#define BLOB_HISTORY_LENGTH 10
 
 #define FACE_FIND_DELAY 16
 #define SWITCHES_DEVICE_SEND_DELAY 16
@@ -32,7 +32,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		void clearBlobHeightHistory();
+		void clearBlobHistory();
 		int averageBlobHeights();
 		ofVec2f averageBlobLoc();
 

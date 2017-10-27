@@ -1,8 +1,9 @@
 <AdjustmentPanel>
 	<OverScale>10</OverScale>
 	<Vertical_Offset>0</Vertical_Offset>
-	<Horizontal_Offset>0</Horizontal_Offset>
+	<Horizontal_Offset>-38</Horizontal_Offset>
 	<Vert_Pos_Scale>1</Vert_Pos_Scale>
-	<Horiz_Pos_Scale>1.73155</Horiz_Pos_Scale>
-	<Lights_Level>0</Lights_Level>
+	<Horiz_Pos_Scale>1.83135</Horiz_Pos_Scale>
+	<Lights_Level>34.29</Lights_Level>
+<AdjustmentPanel/>
 </AdjustmentPanel>

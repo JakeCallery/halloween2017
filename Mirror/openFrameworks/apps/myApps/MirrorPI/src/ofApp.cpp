@@ -76,7 +76,7 @@ void ofApp::setup(){
 	finder.setup("haarcascade_frontalface_default.xml");
 	
 	//Setup smoothing
-	clearBlobHeightHistory();
+	clearBlobHistory();
 
 	//Setup framerate
 	ofSetFrameRate(60);
@@ -171,7 +171,8 @@ void ofApp::update(){
 			curBlobY = curBlob.y;
 
 			blobHeightHistory[blobHistoryIndex] = curBlobHeight;
-		
+			
+
 			lastBlobCenterX = curBlobX + (int)(curBlobWidth / 2);
 			lastBlobCenterY = curBlobY + (int)(curBlobHeight / 2);
 
@@ -206,40 +207,32 @@ void ofApp::update(){
 			blobCenterYHistory[blobHistoryIndex] = (int)(screenYCenter + yAmountFromCenter);
 
 			ofVec2f avgLoc = averageBlobLoc();
-			int avgBlobX = (int)avgLoc.x;
-			int avgBlobY = (int)avgLoc.y;
-
-
-			overlayImageX = avgBlobX;
-			overlayImageY = avgBlobY;
-
-			
-			//Update history inex
-			blobHistoryIndex++;
-			if (blobHistoryIndex > BLOB_HISTORY_LENGTH) {
-				blobHistoryIndex = 0;
-			}
-
+			overlayImageX = (int)avgLoc.x;
+			overlayImageY = (int)avgLoc.y;
 
 			//Calc image size
 			int avgBlobHeight = averageBlobHeights();
 			int sizeDiff = currentImage.getWidth() - avgBlobHeight;
 			float sizePercent = (currentImage.getWidth() - sizeDiff) / currentImage.getWidth();
-			
-			//overlayImageWidth = (int)(lastBlobHeight * maskOverScaleSlider);
 			overlayImageWidth = (int)(avgBlobHeight * maskOverScaleSlider);
 			overlayImageHeight = (int)((currentImage.getHeight() * sizePercent) * maskOverScaleSlider);
 
+			//Shift overlay by half of height (center)
 			overlayImageX -= overlayImageHeight / 2;
 
 			//Counteract Camera offset
 			overlayImageX += (int)maskHorizontalOffsetSlider;
 			overlayImageY += (int)maskVerticalOffsetSlider;
+
+			//Update history inex
+			blobHistoryIndex++;
+			if (blobHistoryIndex >= BLOB_HISTORY_LENGTH) {
+				blobHistoryIndex = 0;
+			}
 		}
 		else {
 			hasBlobs = false;
-
-			//Clear averages
+			//Time out here after a while and enter idle mode
 		}
 
 	}
@@ -450,9 +443,11 @@ void ofApp::keyPressed(int key){
 	}
 }
 
-void ofApp::clearBlobHeightHistory() {
+void ofApp::clearBlobHistory() {
 	for (int i = 0; i < BLOB_HISTORY_LENGTH; i++) {
 		blobHeightHistory[i] = 0;
+		blobCenterXHistory[i] = 0;
+		blobCenterYHistory[i] = 0;
 	}
 }
 
@@ -469,6 +464,7 @@ int ofApp::averageBlobHeights() {
 ofVec2f ofApp::averageBlobLoc() {
 	int totalX = 0;
 	int totalY = 0;
+	
 	for (int i = 0; i < BLOB_HISTORY_LENGTH; i++) {
 		totalX += blobCenterXHistory[i];
 		totalY += blobCenterYHistory[i];
