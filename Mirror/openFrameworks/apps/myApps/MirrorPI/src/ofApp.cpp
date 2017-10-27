@@ -89,6 +89,16 @@ void ofApp::setup(){
 	frankensteinImage.rotate90(1);
 	wolfManImage.load("WolfMan.png");
 	wolfManImage.rotate90(1);
+
+	//Setup GUI
+	adjustmentPanel.setup("AdjustmentPanel");
+	adjustmentPanel.setPosition(350, 0);
+	adjustmentPanel.add(maskOverScaleSlider.setup("OverScale", 1, 0.1, 10.0));
+	adjustmentPanel.add(maskVerticalOffsetSlider.setup("Vertical Offset", 0, -500.0, 500));
+	adjustmentPanel.add(maskHorizontalOffsetSlider.setup("Horizontal Offset", 0, -200, 200));
+	adjustmentPanel.add(maskVerticalPosScaleSlider.setup("Vert Pos Scale", 1, 0.01, 3.0));
+	adjustmentPanel.add(maskHorizontalPosScaleSlider.setup("Horiz Pos Scale", 1, 0.01, 3.0));
+
 }
 
 //--------------------------------------------------------------
@@ -132,9 +142,17 @@ void ofApp::update(){
 			overlayImageX = (int)((WINDOW_HEIGHT * (1 - blobCenterXPercent)) - overlayImageCenterOffsetY);
 			overlayImageY = (int)((WINDOW_WIDTH * (1- blobCenterYPercent)) - overlayImageCenterOffsetX);
 
+			//Calc image size
+			int sizeDiff = currentImage.getWidth() - lastBlobHeight;
+			float sizePercent = (currentImage.getWidth() - sizeDiff) / currentImage.getWidth();
+			
+			overlayImageWidth = (int)(lastBlobHeight * maskOverScaleSlider);
+			overlayImageHeight = (int)((currentImage.getHeight() * sizePercent) * maskOverScaleSlider);
+
+
 			//Counteract Camera offset
-			overlayImageX += X_CAM_OFFSET;
-			overlayImageY += Y_CAM_OFFSET;
+			overlayImageX += (int)maskHorizontalOffsetSlider;
+			overlayImageY += (int)maskVerticalOffsetSlider;
 		}
 
 	}
@@ -273,7 +291,7 @@ void ofApp::draw(){
 	//Handle overlay drawing
 	ofSetHexColor(0xFFFFFF);
 	if (!isNoImage) {
-		currentImage.draw(overlayImageY, overlayImageX);
+		currentImage.draw(overlayImageY, overlayImageX, overlayImageWidth, overlayImageHeight);
 	}
 	
 	//Overlay Debug Text
@@ -284,6 +302,9 @@ void ofApp::draw(){
 			<< "Blobs Found: " << finder.blobs.size() << endl;
 		
 		ofDrawBitmapString(reportStream.str(), 10, WINDOW_HEIGHT - 30);
+
+		//Draw GUI
+		adjustmentPanel.draw();
 	}
 }
 

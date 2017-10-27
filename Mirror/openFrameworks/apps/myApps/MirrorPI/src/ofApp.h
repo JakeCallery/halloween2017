@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxCvHaarFinder.h"
+#include "ofxGui.h"
 
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
@@ -33,6 +34,16 @@ class ofApp : public ofBaseApp{
 
 		uint64_t faceFindElapsedTime;
 		uint64_t serialWriteElapsedTime;
+
+		//GUI Panels
+		ofxPanel adjustmentPanel;
+
+		//GUI Sliders
+		ofxFloatSlider maskOverScaleSlider;
+		ofxFloatSlider maskVerticalOffsetSlider;
+		ofxFloatSlider maskHorizontalOffsetSlider;
+		ofxFloatSlider maskVerticalPosScaleSlider;
+		ofxFloatSlider maskHorizontalPosScaleSlider;
 
 		//Haar finder bits
 		ofxCvGrayscaleImage cvGrayImg;
@@ -68,6 +79,8 @@ class ofApp : public ofBaseApp{
 		int overlayImageCenterOffsetY;
 		int overlayImageX;
 		int overlayImageY;
+		int overlayImageWidth;
+		int overlayImageHeight;
 
 		int maskCount = 0;
 		bool isDebugEnabled = true;
