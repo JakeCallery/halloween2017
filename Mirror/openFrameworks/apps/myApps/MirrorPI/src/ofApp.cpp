@@ -97,10 +97,10 @@ void ofApp::setup(){
 	adjustmentPanel.setup("AdjustmentPanel");
 	adjustmentPanel.setPosition(350, 0);
 	adjustmentPanel.add(maskOverScaleSlider.setup("OverScale", 10.0, 0.1, 20.0));
-	adjustmentPanel.add(maskVerticalOffsetSlider.setup("Vertical Offset", 500, -1000.0, 1000));
+	adjustmentPanel.add(maskVerticalOffsetSlider.setup("Vertical Offset", 0, -1000.0, 1000));
 	adjustmentPanel.add(maskHorizontalOffsetSlider.setup("Horizontal Offset", 0, -200, 1000));
-	adjustmentPanel.add(maskVerticalPosScaleSlider.setup("Vert Pos Scale", 1.0, 0.01, 2.0));
-	adjustmentPanel.add(maskHorizontalPosScaleSlider.setup("Horiz Pos Scale", 0.5, 0.01, 2.0));
+	adjustmentPanel.add(maskVerticalPosScaleSlider.setup("Vert Pos Scale", 1.0, 0.01, 5.0));
+	adjustmentPanel.add(maskHorizontalPosScaleSlider.setup("Horiz Pos Scale",1.0, 0.01, 5.0));
 	adjustmentPanel.add(lightLevelSlider.setup("Lights Level", 0.0, 0.0, 254));
 
 }
@@ -116,7 +116,8 @@ void ofApp::update(){
 		//Generate grayscale image from pixels
 		ofPixels &pixels = vidGrabber.getPixels();
 		cvColorImg.setFromPixels(pixels);
-
+		cvColorImg.mirror(false, true);
+		
 		//Convert to greyscale image
 		cvGrayImg = cvColorImg;
 
@@ -139,12 +140,30 @@ void ofApp::update(){
 			lastBlobCenterY = lastBlobY + (int)(lastBlobHeight / 2);
 
 			//Find location from webcam to full screen
-			blobCenterXPercent = lastBlobCenterX / ((double)camWidth * maskHorizontalPosScaleSlider);
-			blobCenterYPercent = lastBlobCenterY / ((double)camHeight * maskVerticalPosScaleSlider);
+			double xCamCenter = camWidth / 2;
+			double yCamCenter = camHeight / 2;
+
+			double xBlobDistFromCenter = lastBlobCenterX - xCamCenter;
+			double yBlobDistFromCenter = lastBlobCenterY - yCamCenter;
+
+			//Scale up distance from center
+			xBlobDistFromCenter *= maskVerticalPosScaleSlider;
+			yBlobDistFromCenter *= maskHorizontalPosScaleSlider;
+
+			blobCenterXPercent = xBlobDistFromCenter / ((double)camWidth);
+			blobCenterYPercent = yBlobDistFromCenter / ((double)camHeight);
+
+			//Convert Distance to window space
+			double xAmountFromCenter = (WINDOW_HEIGHT) * blobCenterXPercent;
+			double yAmountFromCenter = -1 * (WINDOW_WIDTH) * blobCenterYPercent;
 
 			//Calc target image location
-			overlayImageX = (int)((WINDOW_HEIGHT * (1 - blobCenterXPercent)) - overlayImageCenterOffsetY);
-			overlayImageY = (int)((WINDOW_WIDTH * (1- blobCenterYPercent)) - overlayImageCenterOffsetX);
+			double screenXCenter = WINDOW_HEIGHT / 2;
+			double screenYCenter = WINDOW_WIDTH / 2;
+
+			overlayImageX = (int)(screenXCenter + xAmountFromCenter);
+			overlayImageY = (int)(screenYCenter + yAmountFromCenter);
+
 
 			//Calc image size
 			int sizeDiff = currentImage.getWidth() - lastBlobHeight;
@@ -153,6 +172,7 @@ void ofApp::update(){
 			overlayImageWidth = (int)(lastBlobHeight * maskOverScaleSlider);
 			overlayImageHeight = (int)((currentImage.getHeight() * sizePercent) * maskOverScaleSlider);
 
+			overlayImageX -= overlayImageHeight / 2;
 
 			//Counteract Camera offset
 			overlayImageX += (int)maskHorizontalOffsetSlider;
@@ -317,9 +337,11 @@ void ofApp::draw(){
 		stringstream reportStream;
 		
 		reportStream << "FPS: " << ofGetFrameRate() << "/" << ofGetTargetFrameRate() << endl
-			<< "Blobs Found: " << finder.blobs.size() << endl;
-		
-		ofDrawBitmapString(reportStream.str(), 10, WINDOW_HEIGHT - 30);
+			<< "Blobs Found: " << finder.blobs.size() << endl
+			<< "Mask Center: " << overlayImageX << " / " << overlayImageY
+			<< "Blob Height: " << lastBlobHeight << endl;
+
+		ofDrawBitmapString(reportStream.str(), 10, WINDOW_HEIGHT - 60);
 
 		//Draw GUI
 		adjustmentPanel.draw();
