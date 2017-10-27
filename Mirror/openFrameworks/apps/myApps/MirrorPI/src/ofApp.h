@@ -7,6 +7,8 @@
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
 
+#define BLOB_HEIGHT_HISTORY_LENGTH 60
+
 #define FACE_FIND_DELAY 16
 #define SWITCHES_DEVICE_SEND_DELAY 16
 #define LIGHTS_DEVICE_SEND_DELAY 1000
@@ -29,6 +31,9 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+
+		void clearBlobHeightHistory();
+		int averageBlobHeights();
 
 		uint64_t faceFindElapsedTime;
 		uint64_t switchesDeviceWriteElapsedTime;
@@ -100,4 +105,6 @@ class ofApp : public ofBaseApp{
 
 		//Smoothing
 		bool hasBlobs = false;
+		int blobHistoryIndex = 0;
+		int blobHeightHistory[BLOB_HEIGHT_HISTORY_LENGTH];
 };

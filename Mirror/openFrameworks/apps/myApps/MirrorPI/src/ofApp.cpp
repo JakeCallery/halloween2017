@@ -75,6 +75,9 @@ void ofApp::setup(){
 	//Set up haar xml
 	finder.setup("haarcascade_frontalface_default.xml");
 	
+	//Setup smoothing
+	clearBlobHeightHistory();
+
 	//Setup framerate
 	ofSetFrameRate(60);
 
@@ -139,6 +142,12 @@ void ofApp::update(){
 			lastBlobX = cur.x;
 			lastBlobY = cur.y;
 
+			blobHeightHistory[blobHistoryIndex] = lastBlobHeight;
+			blobHistoryIndex++;
+			if (blobHistoryIndex > BLOB_HEIGHT_HISTORY_LENGTH) {
+				blobHistoryIndex = 0;
+			}
+
 			lastBlobCenterX = lastBlobX + (int)(lastBlobWidth / 2);
 			lastBlobCenterY = lastBlobY + (int)(lastBlobHeight / 2);
 
@@ -173,10 +182,12 @@ void ofApp::update(){
 
 
 			//Calc image size
-			int sizeDiff = currentImage.getWidth() - lastBlobHeight;
+			int avgBlobHeight = averageBlobHeights();
+			int sizeDiff = currentImage.getWidth() - avgBlobHeight;
 			float sizePercent = (currentImage.getWidth() - sizeDiff) / currentImage.getWidth();
 			
-			overlayImageWidth = (int)(lastBlobHeight * maskOverScaleSlider);
+			//overlayImageWidth = (int)(lastBlobHeight * maskOverScaleSlider);
+			overlayImageWidth = (int)(avgBlobHeight * maskOverScaleSlider);
 			overlayImageHeight = (int)((currentImage.getHeight() * sizePercent) * maskOverScaleSlider);
 
 			overlayImageX -= overlayImageHeight / 2;
@@ -350,7 +361,7 @@ void ofApp::draw(){
 		
 		reportStream << "FPS: " << ofGetFrameRate() << "/" << ofGetTargetFrameRate() << endl
 			<< "Blobs Found: " << finder.blobs.size() << endl
-			<< "Mask Center: " << overlayImageX << " / " << overlayImageY
+			<< "Mask Center: " << overlayImageX << " / " << overlayImageY << endl
 			<< "Blob Height: " << lastBlobHeight << endl;
 
 		ofDrawBitmapString(reportStream.str(), 10, WINDOW_HEIGHT - 60);
@@ -397,6 +408,22 @@ void ofApp::keyPressed(int key){
 	else if (key == 'd') {
 		isDebugEnabled = !isDebugEnabled;
 	}
+}
+
+void ofApp::clearBlobHeightHistory() {
+	for (int i = 0; i < BLOB_HEIGHT_HISTORY_LENGTH; i++) {
+		blobHeightHistory[i] = 0;
+	}
+}
+
+int ofApp::averageBlobHeights() {
+	int total = 0;
+	for (int i = 0; i < BLOB_HEIGHT_HISTORY_LENGTH; i++) {
+		total += blobHeightHistory[i];
+	}
+
+	double avg = total / BLOB_HEIGHT_HISTORY_LENGTH;
+	return int(avg);
 }
 
 //--------------------------------------------------------------
