@@ -243,13 +243,12 @@ void ofApp::update(){
 		if ((ofGetElapsedTimeMillis() - switchesDeviceWriteElapsedTime) > SWITCHES_DEVICE_SEND_DELAY) {
 
 			//update serial here
-
 			unsigned char initByte = 255;
-			unsigned char redByte = 0;
-			unsigned char greenByte = 0;
-			unsigned char blueByte = 0;
-			unsigned char yellowByte = 0;
-			unsigned char whiteByte = 0;
+			unsigned char redByte = (currentImageId == ZOMBIE_IMAGE_ID) ? 1 : 0;
+			unsigned char greenByte = (currentImageId == FRANK_IMAGE_ID) ? 1 : 0;
+			unsigned char blueByte = (currentImageId == WOLF_IMAGE_ID) ? 1 : 0;
+			unsigned char yellowByte = (currentImageId == JASON_IMAGE_ID) ? 1 : 0;
+			unsigned char whiteByte = (currentImageId == NO_IMAGE_ID) ? 1 : 0;
 
 			unsigned char buf[6]{initByte,redByte,greenByte,blueByte,yellowByte,whiteByte};
 			switchesDevice.writeBytes(&buf[0], 6);
@@ -289,25 +288,34 @@ void ofApp::update(){
 				if ((int)commandBytes[0] == 1) {
 					//ofLogNotice() << "Red Mask" << endl;
 					currentImage = zombieImage;
+					currentImageId = ZOMBIE_IMAGE_ID;
+
 					isNoImage = false;
 				}
 				else if ((int)commandBytes[1] == 1) {
 					//ofLogNotice() << "Green Mask" << endl;
 					currentImage = frankensteinImage;
+					currentImageId = FRANK_IMAGE_ID;
+
 					isNoImage = false;
 				}
 				else if ((int)commandBytes[2] == 1) {
 					//ofLogNotice() << "Blue Mask" << endl;
 					currentImage = wolfManImage;
+					currentImageId = WOLF_IMAGE_ID;
+
 					isNoImage = false;
 				}
 				else if ((int)commandBytes[3] == 1) {
 					//ofLogNotice() << "Yellow Mask" << endl;
 					currentImage = jasonMaskImage;
+					currentImageId = JASON_IMAGE_ID;
+
 					isNoImage = false;
 				}
 				else if ((int)commandBytes[4] == 1) {
 					//ofLogNotice() << "White Mask" << endl;
+					currentImageId = NO_IMAGE_ID;
 					isNoImage = true;
 				}
 

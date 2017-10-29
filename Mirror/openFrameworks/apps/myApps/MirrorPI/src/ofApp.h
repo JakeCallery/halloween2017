@@ -13,6 +13,12 @@
 #define SWITCHES_DEVICE_SEND_DELAY 16
 #define LIGHTS_DEVICE_SEND_DELAY 1000
 
+#define NO_IMAGE_ID 0
+#define ZOMBIE_IMAGE_ID 1
+#define FRANK_IMAGE_ID 2
+#define WOLF_IMAGE_ID 3
+#define JASON_IMAGE_ID 4
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -69,6 +75,7 @@ class ofApp : public ofBaseApp{
 		ofImage wolfManImage;
 		ofImage currentImage;
 		bool isNoImage = true;
+		unsigned int currentImageId = 0;
 
 		//Helpers
 		int curBlobX;
