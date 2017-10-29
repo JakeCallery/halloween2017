@@ -12,6 +12,8 @@
 #define FACE_FIND_DELAY 16
 #define SWITCHES_DEVICE_SEND_DELAY 16
 #define LIGHTS_DEVICE_SEND_DELAY 1000
+#define ATTRACT_MODE_TIMEOUT 5000
+#define ATTRACT_MODE_DELAY 500
 
 #define NO_IMAGE_ID 0
 #define ZOMBIE_IMAGE_ID 1
@@ -124,4 +126,10 @@ class ofApp : public ofBaseApp{
 		ofVec2f lastBlobVec;
 		ofVec2f curBlobVec;
 		ofVec2f distVec;
+
+		//Attract Mode
+		uint64_t attractModeTimer;
+		uint64_t attractModeDelayTimer = 0;
+		bool runAttractMode = 1;
+		unsigned int attractModeLightIndex = 1;
 };

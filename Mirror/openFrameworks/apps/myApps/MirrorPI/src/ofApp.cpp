@@ -12,6 +12,8 @@ void ofApp::setup(){
 	//Cam Setup
 	camWidth = 320;
 	camHeight = 240;
+	//camWidth = 160;
+	//camHeight = 120;
 
 	ofLogNotice() << "Cam Width: " << camWidth;
 	ofLogNotice() << "Cam Height: " << camHeight;
@@ -131,6 +133,8 @@ void ofApp::update(){
 
 		
 		if (finder.blobs.size() > 0) {
+			runAttractMode = false;
+			attractModeTimer = 0;
 			hasBlobs = true;
 			ofRectangle curBlob;
 			
@@ -233,7 +237,19 @@ void ofApp::update(){
 		}
 		else {
 			hasBlobs = false;
+			
 			//Time out here after a while and enter idle mode
+			if (attractModeTimer == 0) {
+				//start timer
+				attractModeTimer = ofGetElapsedTimeMillis();
+			}
+
+			if (ofGetElapsedTimeMillis() - attractModeTimer > ATTRACT_MODE_TIMEOUT) {
+				//ofLogNotice() << " ==== Starting Attract Mode ====" << endl;
+				runAttractMode = true;
+				currentImageId = NO_IMAGE_ID;
+				isNoImage = true;
+			}
 		}
 
 	}
@@ -245,11 +261,52 @@ void ofApp::update(){
 
 			//update serial here
 			unsigned char initByte = 255;
-			unsigned char redByte = (currentImageId == ZOMBIE_IMAGE_ID) ? 1 : 0;
-			unsigned char greenByte = (currentImageId == FRANK_IMAGE_ID) ? 1 : 0;
-			unsigned char blueByte = (currentImageId == WOLF_IMAGE_ID) ? 1 : 0;
-			unsigned char yellowByte = (currentImageId == JASON_IMAGE_ID) ? 1 : 0;
-			unsigned char whiteByte = (currentImageId == NO_IMAGE_ID) ? 1 : 0;
+			unsigned char redByte;
+			unsigned char greenByte;
+			unsigned char blueByte;
+			unsigned char yellowByte;
+			unsigned char whiteByte;
+
+			if (!runAttractMode) {
+				redByte = (currentImageId == ZOMBIE_IMAGE_ID) ? 1 : 0;
+				greenByte = (currentImageId == FRANK_IMAGE_ID) ? 1 : 0;
+				blueByte = (currentImageId == WOLF_IMAGE_ID) ? 1 : 0;
+				yellowByte = (currentImageId == JASON_IMAGE_ID) ? 1 : 0;
+				whiteByte = (currentImageId == NO_IMAGE_ID) ? 1 : 0;
+			}
+			else {
+				redByte = 0;
+				greenByte = 0;
+				blueByte = 0;
+				yellowByte = 0;
+				whiteByte = 1;
+
+				if (attractModeLightIndex == 0) {
+					redByte = 1;
+				}
+				else if (attractModeLightIndex == 1) {
+					greenByte = 1;
+				}
+				else if (attractModeLightIndex == 2) {
+					blueByte = 1;
+				}
+				else if (attractModeLightIndex == 3) {
+					yellowByte = 1;
+				}
+
+				//inc light index
+				if (ofGetElapsedTimeMillis() - attractModeDelayTimer >= ATTRACT_MODE_DELAY) {
+					attractModeLightIndex++;
+					attractModeDelayTimer = ofGetElapsedTimeMillis();
+				}
+				
+
+				//Reset index if needed;
+				if (attractModeLightIndex >= 4) {
+					attractModeLightIndex = 0;
+				}
+			}
+			
 
 			unsigned char buf[6]{initByte,redByte,greenByte,blueByte,yellowByte,whiteByte};
 			switchesDevice.writeBytes(&buf[0], 6);
@@ -383,6 +440,7 @@ void ofApp::draw(){
 			ofDrawRectangle(cur.x, cur.y, cur.width, cur.height);
 		}
 		*/
+
 		//Draw all blobs
 		int numBlobs = finder.blobs.size();
 		for (int i = 0; i < numBlobs; i++) {
