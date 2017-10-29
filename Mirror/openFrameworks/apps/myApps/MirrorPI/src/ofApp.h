@@ -7,7 +7,7 @@
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
 
-#define BLOB_HISTORY_LENGTH 10
+#define BLOB_HISTORY_LENGTH 60
 
 #define FACE_FIND_DELAY 16
 #define SWITCHES_DEVICE_SEND_DELAY 16
@@ -55,6 +55,7 @@ class ofApp : public ofBaseApp{
 		ofxFloatSlider maskHorizontalOffsetSlider;
 		ofxFloatSlider maskVerticalPosScaleSlider;
 		ofxFloatSlider maskHorizontalPosScaleSlider;
+		ofxFloatSlider maskHistoryLengthSlider;
 		ofxFloatSlider lightLevelSlider;
 
 		//Haar finder bits

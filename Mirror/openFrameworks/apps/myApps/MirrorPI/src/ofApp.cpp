@@ -104,6 +104,7 @@ void ofApp::setup(){
 	adjustmentPanel.add(maskHorizontalOffsetSlider.setup("Horizontal Offset", 0, -200, 1000));
 	adjustmentPanel.add(maskVerticalPosScaleSlider.setup("Vert Pos Scale", 1.0, 0.01, 5.0));
 	adjustmentPanel.add(maskHorizontalPosScaleSlider.setup("Horiz Pos Scale",1.0, 0.01, 5.0));
+	adjustmentPanel.add(maskHistoryLengthSlider.setup("History Length", 10.0, 0, BLOB_HISTORY_LENGTH));
 	adjustmentPanel.add(lightLevelSlider.setup("Lights Level", 0.0, 0.0, 254));
 
 }
@@ -226,7 +227,7 @@ void ofApp::update(){
 
 			//Update history inex
 			blobHistoryIndex++;
-			if (blobHistoryIndex >= BLOB_HISTORY_LENGTH) {
+			if (blobHistoryIndex >= (int)maskHistoryLengthSlider) {
 				blobHistoryIndex = 0;
 			}
 		}
@@ -461,11 +462,11 @@ void ofApp::clearBlobHistory() {
 
 int ofApp::averageBlobHeights() {
 	int total = 0;
-	for (int i = 0; i < BLOB_HISTORY_LENGTH; i++) {
+	for (int i = 0; i < (int)maskHistoryLengthSlider; i++) {
 		total += blobHeightHistory[i];
 	}
 
-	double avg = total / BLOB_HISTORY_LENGTH;
+	double avg = total / (int)maskHistoryLengthSlider;
 	return int(avg);
 }
 
@@ -473,13 +474,13 @@ ofVec2f ofApp::averageBlobLoc() {
 	int totalX = 0;
 	int totalY = 0;
 	
-	for (int i = 0; i < BLOB_HISTORY_LENGTH; i++) {
+	for (int i = 0; i < (int)maskHistoryLengthSlider; i++) {
 		totalX += blobCenterXHistory[i];
 		totalY += blobCenterYHistory[i];
 	}
 
-	double avgX = totalX / BLOB_HISTORY_LENGTH;
-	double avgY = totalY / BLOB_HISTORY_LENGTH;
+	double avgX = totalX / (int)maskHistoryLengthSlider;
+	double avgY = totalY / (int)maskHistoryLengthSlider;
 
 	return ofVec2f(avgX, avgY);
 }
