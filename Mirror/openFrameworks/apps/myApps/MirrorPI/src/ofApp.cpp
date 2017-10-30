@@ -57,7 +57,7 @@ void ofApp::setup(){
 		ofLogNotice() << "Using lightsCOM: " << lightsCOM << endl;
 	}
 	else {
-		lightsCOM = "COM11";
+		lightsCOM = "COM8";
 		ofLogNotice() << "Defaulting lightsCOM: " << lightsCOM << endl;
 	}
 

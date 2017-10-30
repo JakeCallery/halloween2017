@@ -36,6 +36,9 @@ void setup() {
   strip.begin();
   strip.show(); // Initialize all pixels to 'off'
 
+  halfLights(128);
+  strip.show();
+
 }
 
 
